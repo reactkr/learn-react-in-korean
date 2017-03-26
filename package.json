@@ -1,0 +1,19 @@
+{
+  "name": "learn-react-in-korean",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:Rokt33r/learn-react-in-korean.git",
+  "author": "Junyoung Choi <fluke8259@gmail.com>",
+  "license": "CC-BY-NC-SA-4.0",
+  "devDependencies": {
+    "remark-cli": "^3.0.0",
+    "remark-lint": "^6.0.0",
+    "remark-preset-lint-recommended": "^2.0.0"
+  },
+  "scripts": {
+    "test": "remark readme.md --frail --quiet"
+  },
+  "remarkConfig": {
+    "plugins": ["remark-preset-lint-recommended"]
+  }
+}
