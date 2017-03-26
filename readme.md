@@ -10,6 +10,11 @@
 -   [(React Router) v4로 마이그레이션 해보자!](https://perfectacle.github.io/2017/03/25/react-router-v4/)
 -   [(React Hot Loader) v3로 마이그레이션 해보자!](https://perfectacle.github.io/2017/03/25/react-hot-loader-3/)
 
+## Redux
+
+-   [[번역] Redux 한글 문서](http://dobbit.github.io/redux/index.html)
+-   [리덕스 패턴과 안티 패턴 (Redux Patterns and Anti-Patterns)](https://www.vobour.com/book/view/TGJKKFN2TmyxaGDpN)
+
 ## Webpack
 
 -   [(Webpack 2) 코드를 분할해보자!](https://perfectacle.github.io/2017/03/13/webpack2-code-splitting/)
