@@ -1,16 +1,25 @@
 # 한국어로 배우는 리액트
 
-한국어로된 리액트 관련 포스팅이나 웹사이트의 모음입니다. 현재 직접 링크를 모으고 있습니다. PR은 언제나 환영합니다.
+한국어로된 리액트 관련 포스팅이나 웹사이트의 모음입니다. 현재 직접 링크를 모으고 있습니다. PR은 언제나 환영입니다.
 
+## React
+
+-   [React의 기본, 컴포넌트를 알아보자](https://medium.com/little-big-programming/react%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90-92c923011818#.uemkhn2ym)
+-   [[번역] 리액트에 대해서 그 누구도 제대로 설명하기 어려운 것 – 왜 Virtual DOM 인가?](https://velopert.com/3236)
+-   [함수형 setState가 리액트(React)의 미래이다](https://www.vobour.com/book/view/MPTQLpzxAHxzywcBc)
 -   [(React Router) v4로 마이그레이션 해보자!](https://perfectacle.github.io/2017/03/25/react-router-v4/)
 -   [(React Hot Loader) v3로 마이그레이션 해보자!](https://perfectacle.github.io/2017/03/25/react-hot-loader-3/)
+
+## Webpack
+
 -   [(Webpack 2) 코드를 분할해보자!](https://perfectacle.github.io/2017/03/13/webpack2-code-splitting/)
 -   [(Webpack 2) 트리 쉐이킹을 해보자!](https://perfectacle.github.io/2017/03/12/webpack2-tree-shaking/)
--   [React의 기본, 컴포넌트를 알아보자](https://medium.com/little-big-programming/react%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90-92c923011818#.uemkhn2ym)
+
+## Misc
+
+-   [rest에서 graph ql과 relay로 갈아타기](https://www.slideshare.net/deview/112rest-graph-ql-relay)
 
 ## License
 
-각각의 링크의 소유는 원 포스팅의 작성자에게 있습니다.
-
-그 이외에는 내용은 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)하에 이용 가능합니다.
+본 링크 리스트는 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)하에 이용 가능합니다.
 
