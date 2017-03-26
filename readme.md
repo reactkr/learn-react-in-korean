@@ -6,6 +6,7 @@
 -   [(React Hot Loader) v3로 마이그레이션 해보자!](https://perfectacle.github.io/2017/03/25/react-hot-loader-3/)
 -   [(Webpack 2) 코드를 분할해보자!](https://perfectacle.github.io/2017/03/13/webpack2-code-splitting/)
 -   [(Webpack 2) 트리 쉐이킹을 해보자!](https://perfectacle.github.io/2017/03/12/webpack2-tree-shaking/)
+-   [React의 기본, 컴포넌트를 알아보자](https://medium.com/little-big-programming/react%EC%9D%98-%EA%B8%B0%EB%B3%B8-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8%EB%A5%BC-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90-92c923011818#.uemkhn2ym)
 
 ## License
 
