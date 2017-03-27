@@ -24,6 +24,10 @@
 
 -   [rest에서 graph ql과 relay로 갈아타기](https://www.slideshare.net/deview/112rest-graph-ql-relay)
 
+## 번역 요청
+
+번역이 필요한 페이지들은 [새 이슈](https://github.com/Rokt33r/learn-react-in-korean/issues/new)를 만들어서 요청해주세요!
+
 ## License
 
 본 링크 리스트는 [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)하에 이용 가능합니다.
