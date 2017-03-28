@@ -11,7 +11,8 @@
     "remark-preset-lint-recommended": "^2.0.0"
   },
   "scripts": {
-    "test": "remark readme.md --frail --quiet"
+    "test": "remark . -qf",
+    "fix": "remark . -qfo"
   },
   "remarkConfig": {
     "plugins": ["remark-preset-lint-recommended"]
