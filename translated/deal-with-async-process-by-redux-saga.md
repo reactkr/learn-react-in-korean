@@ -771,7 +771,7 @@ export default function configureStore(initialState) {
 
 ![saga-monitor.png](https://qiita-image-store.s3.amazonaws.com/0/69860/82c1116f-50b1-8ab1-dc5c-8a1ba9792275.png "saga-monitor.png")
 
-이 다음의 [API 요청시의 스로틀링](http://qiita.com/kuy/items/716affc808ebb3e1e8ac#api%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%AE%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E3%83%AA%E3%83%B3%E3%82%B0)에서 소개하는 예제에는 모니터가 포함되어 있으므로 [데모](http://kuy.github.io/redux-saga-examples/throttle.html)시험해 보실 수 있습니다.
+이 다음의 [API 요청시의 스로틀링](http://qiita.com/kuy/items/716affc808ebb3e1e8ac#api%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%AE%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E3%83%AA%E3%83%B3%E3%82%B0)에서 소개하는 예제에는 모니터가 포함되어 있으므로 [데모](http://kuy.github.io/redux-saga-examples/throttle.html)로 시험해 보실 수 있습니다.
 
 <!--このあとの[API呼び出しのスロットリング](http://qiita.com/kuy/items/716affc808ebb3e1e8ac#api%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%AE%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E3%83%AA%E3%83%B3%E3%82%B0)で紹介するサンプルにはモニターが組み込んであるので[デモ](http://kuy.github.io/redux-saga-examples/throttle.html)から試せます。-->
 
