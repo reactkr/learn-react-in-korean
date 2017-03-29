@@ -14,6 +14,7 @@
 
 -   [\[번역\] Redux 한글 문서](http://dobbit.github.io/redux/index.html)
 -   [리덕스 패턴과 안티 패턴 (Redux Patterns and Anti-Patterns)](https://www.vobour.com/book/view/TGJKKFN2TmyxaGDpN)
+-   [\[번역\] redux-saga로 비동기처리와 분투하다](./translated/deal-with-async-process-by-redux-saga.md)
 
 ## Webpack
 
