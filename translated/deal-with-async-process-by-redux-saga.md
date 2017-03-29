@@ -1380,15 +1380,15 @@ Socket.IO으로부터 메세지의 수신에 [eventChannel](http://yelouafi.gith
 
 ### PubNub
 
-[redux-saga-chat-example](https://github.com/kuy/redux-saga-chat-example)이라는 redux-saga와 Socket.IO를 합친 채팅 앱을 만드니, 왜인지 [PubNub와 함께 쓸려면 어떻게 해야하지?](https://github.com/kuy/redux-saga-chat-example/issues/2#issuecomment-217758099)라는 질문이 와서 예제를 써봤습니다.
+[redux-saga-chat-example](https://github.com/kuy/redux-saga-chat-example)이라는 redux-saga와 Socket.IO를 합친 채팅 앱을 만드니, 왜인지 [PubNub와 함께 쓸려면 어떻게 해야하지?](https://github.com/kuy/redux-saga-chat-example/issues/2#issuecomment-217758099)라는 질문 있어서 예제를 써봤습니다.
 
 <!--[redux-saga-chat-example](https://github.com/kuy/redux-saga-chat-example)というredux-sagaとSocket.IOを組み合わせたチャットアプリを作ったら、何故か[PubNubと組み合わせるにはどうすればいいの？](https://github.com/kuy/redux-saga-chat-example/issues/2#issuecomment-217758099)という質問が来たのでサンプルコードを書きました。-->
 
-## 은 탄환인건 아니다
+## 만병통치약은 없다
 
 <!--## 銀の弾丸ではない-->
 
-redux-saga의 사용법을 다양한 각도에서 봤습니다. 뭐든 할 수 있을 것 같지만, redux-saga에도 제약이 있습니다. 모든 Middleware의 처리를 그대로 이식할 수 있지 않습니다. 예를들어 Middleware처럼 Action을 솎아 내는건 못합니다. 그래서 이번 샘플은 [Redux의 middleware를 적극적으로 써보자](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e)에서 소개한 [Action을 Dispatch하기 전에 브라우저 확인 다이얼로그를 표시하자](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e#action%E3%82%92dispatch%E3%81%99%E3%82%8B%E5%89%8D%E3%81%AB%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%83%80%E3%82%A4%E3%82%A2%E3%83%AD%E3%82%B0%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B)를 그대로 이식하는건 불가능했습니다. 같은 일을 하기엔 우선 다른 Action을 dispatch시켜, 확인 다이럴로그에 Yes가 나오면 원래의 Action을 dispatch하는 식의 변경이 필요했습니다. 이러면 본말전도가 되므로 솔직하게 Middleware를 쓰는 게 좋은 패턴입니다. 덧붙여 이 제약은 [Redux Middleware in Depth](http://qiita.com/kuy/items/c6784fe443f1d5c7bbdc)라는 포스팅에도 해설한 Middleware를 실행하는 타이밍때문에 일어나는 것입니다. redux-saga의 경우, 항상 Reducer의 처리가 끝난 다음에 Saga가 실행되므로, 지금 상태로는 어떻게 할 수 없기 때문입니다. 수요가 있을지는 모르겠지만 redux-saga에 issue를 세워볼까 생각하고 있습니다.
+redux-saga의 사용법을 다양한 각도에서 봤습니다. 뭐든 할 수 있을 것 같지만, redux-saga에도 제약이 있습니다. 모든 Middleware의 처리를 이식하는건 불가능 합니다. 예를들어 Middleware처럼 Action을 솎아 내는 건 못합니다. 그래서 이번 샘플은 [Redux의 middleware를 적극적으로 써보자](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e)에서 소개한 [Action을 Dispatch하기 전에 브라우저 확인 다이얼로그를 표시하자](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e#action%E3%82%92dispatch%E3%81%99%E3%82%8B%E5%89%8D%E3%81%AB%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%83%80%E3%82%A4%E3%82%A2%E3%83%AD%E3%82%B0%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B)를 그대로 이식하는건 불가능했습니다. 같은 일을 하기엔 우선 다른 Action을 dispatch시켜, 확인 다이럴로그에 Yes가 나오면 원래의 Action을 dispatch하는 식의 변경이 필요했습니다. 이러면 본말전도가 되므로 그냥 Middleware를 쓰는 게 좋은 패턴입니다. 덧붙여 이 제약은 [Redux Middleware in Depth](http://qiita.com/kuy/items/c6784fe443f1d5c7bbdc)라는 포스팅에도 해설한 Middleware를 실행하는 타이밍때문에 일어나는 것입니다. redux-saga의 경우, 항상 Reducer의 처리가 끝난 다음에 Saga가 실행되므로, 지금 상태로는 어떻게 할 수 없기 때문입니다. 수요가 있을지는 모르겠지만 redux-saga에 issue를 세워볼까 생각하고 있습니다.
 
 <!--redux-sagaの使い方をいろいろな角度から見てきました。なんでもできそうに思えますが、redux-sagaにも制約はあります。すべてのMiddlewareの処理をそのまま移植できるわけではありません。例えばMiddlewareのようにActionを間引くことはできません。なので今回のサンプルには[Reduxのmiddlewareを積極的に使っていく](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e)で紹介した[ActionをDispatchする前にブラウザの確認ダイアログを表示する](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e#action%E3%82%92dispatch%E3%81%99%E3%82%8B%E5%89%8D%E3%81%AB%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%83%80%E3%82%A4%E3%82%A2%E3%83%AD%E3%82%B0%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B)をそのまま移植できませんでした。同じことをやるにはまずは別のActionをdispatchしてもらって、確認ダイアログでYesだったら本物のActionをdispatchするという感じに変更が必要になってしまいます。これだと本末転倒なので素直にMiddlewareを使った方がいいパターンです。ちなみにこの制約は[Redux Middleware in Depth](http://qiita.com/kuy/items/c6784fe443f1d5c7bbdc)という記事で解説したMiddlewareを実行するタイミングに起因するものです。redux-sagaの場合、常にReducerの処理が終わった後にSagaが実行されるため、現状ではどうやっても不可能というわけです。需要があるのかわかりませんが、redux-sagaにissueを立ててみようかなと思っています。-->
 
