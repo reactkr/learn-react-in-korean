@@ -9,6 +9,7 @@
 -   [함수형 setState가 리액트(React)의 미래이다](https://www.vobour.com/book/view/MPTQLpzxAHxzywcBc)
 -   [(React Router) v4로 마이그레이션 해보자!](https://perfectacle.github.io/2017/03/25/react-router-v4/)
 -   [(React Hot Loader) v3로 마이그레이션 해보자!](https://perfectacle.github.io/2017/03/25/react-hot-loader-3/)
+-   [\[번역\] 리액트하다가 막혔을 때 생각해볼 4가지 질문](https://velopert.com/3260)
 
 ## Redux
 
