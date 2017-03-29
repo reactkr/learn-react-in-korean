@@ -298,7 +298,7 @@ redux-thunk는 Action Creator가 함수를 넘겨주기에 필연적으로 Actio
 
 <!--さて、さきほどの通信処理はごく単純なものだったので、見慣れない書き方を強制される方が面倒であまり恩恵を受けた、という印象が薄かったかもしれません。というわけで現実のプロジェクトでも起こりそうな機能追加をやってみましょう。複雑になると真価を発揮するのがredux-sagaです。-->
 
-### 처리를 복잡하게 해본다.
+### 처리를 복잡하게 해보자
 
 <!--### 処理を複雑にしてみる-->
 
@@ -379,7 +379,7 @@ export function fetchUser(id) {
 }
 ```-->
 
-...흠. 뭘 하고픈지는 압니다. 아마 보통 이렇게 되겠죠. 하지만 `...`한(뭔가 찝찝한) 느낌이 드네요. 그리고 여기에 또 다른 체인을 늘리거나 체인시키는 위치를 바꾸게 된다면 곤란해 질듯 하네요. 무엇보다도 기분 나쁜건 `fetchUser`라는 Action Creator를 불러내서 왜 유저 검색까지 실행하고 있느냐 라는 점입니다. Middleware를 사용하여 처리를 분리하면 이 문제점이 조금은 해소될 듯 하지만, 어플리케이션 독립의 DSL과 같은 코드가 계속 늘어나게 되는 것 역시 괴로울 듯 합니다.
+...흠. 뭘 하고픈지는 압니다. 아마 보통 이렇게 되겠죠. 하지만 `...`한(뭔가 찝찝한) 느낌이 드네요. 그리고 여기에 또 다른 체인을 늘리거나 체인시키는 위치를 바꾸게 된다면 곤란해 질듯 하네요. 무엇보다도 기분 나쁜건 `fetchUser`라는 Action Creator를 불러내서 왜 유저 검색까지 실행하고 있느냐 라는 점입니다. Middleware를 사용하여 처리를 분리하면 이 문제점이 조금은 해소될 듯 하지만, 어플리케이션 독립적인 DSL과 같은 코드가 계속 늘어나게 되는 것 역시 괴로울 듯 합니다.
 
 <!--・・・うーむ。やりたいことはわかる。それにたぶん普通に書くとそうなる。だけど・・・みたいな気持ちになりますね。そしてここからさらにチェインさせることになったり、チェインさせるタイミングをやっぱり別のとこにする、という要望に答えていくのもつらそうですね。何よりも気持ち悪いのは `fetchUser` というAction Creatorを呼び出してなぜかユーザー検索まで実行されてしまうという点です。Middlewareを使って処理を分離していけばこれらの問題点を多少なりとも解消できそうですが、アプリケーション独自のDSLのようなコードが増えまくってそれはそれでつらそうです。-->
 
@@ -493,7 +493,7 @@ export default function* rootSaga() {
 
 <!--それぞれのタスクに着目すると単純なことしかしてないので理解しやすいのではないでしょうか。さらにこのコードを拡張してチェインを増やしたり、チェインさせる順番を入れ替えたり、何をするにしてもタスクは１つのことに集中しているので、他がなにしていようとあまり影響を受けません。この性質を積極的に利用してタスクが膨れ上がる前にガンガン切り分けていくとコードの健全性を保てます。-->
 
-### 테스트를 써본다
+### 테스트를 써보자
 
 <!--### テストを書いてみる-->
 
@@ -600,11 +600,11 @@ describe('handleRequestUser', () => {
 
 <!--これはGenerator関数のテストになるので慣れないうちはややこしいですね。考え方としては `next()` を呼ぶと最初の `yield` まで実行されてそのときの右辺値をラップしたものが戻り値として返ってきます。右辺値自体は `value` プロパティに格納されているのでそれをチェックします。-->
 
-지금, Task는 정지되어있습니다. 이를 재개하기 위해서는 더욱이 `next()` 를 불러냅니다. 이 `next()`의 인수로써 넘겨준 것은, Task가 재개될 때에 `yield`로부터 나온 리턴 값이 됩니다. 즉 코드중의 `(A)`로 넘겨지는 것이 `(A')`로 기대되는 리턴 값이라는 것이죠. 같은 방식으로 `(B)`로 넘겨진 통신결과의 오브젝트가 `(B')`의 `call` Effect로 불러진 결과가 됩니다.
+지금, Task는 정지되어있습니다. 이를 재개하기 위해서는 더욱이 `next()`를 불러냅니다. 이 `next()`의 인수로써 넘겨준 것은, Task가 재개될 때에 `yield`로부터 나온 리턴 값이 됩니다. 즉 코드중의 `(A)`로 넘겨지는 것이 `(A')`로부터 나올거라 기대되는 리턴 값이라는 것이죠. 같은 방식으로 `(B)`로 넘겨진 통신결과의 오브젝트가 `(B')`의 `call` Effect로 불러진 결과가 됩니다.
 
 <!--今、タスクは停止しています。これを再開するにはさらに `next()` を呼び出します。この `next()` の引数として渡したものは、タスクが再開したときに `yield` から返ってくる戻り値になります。つまりコード中の `(A)` で渡すものが `(A')` で期待している戻り値、というわけですね。同じように `(B)` で渡した通信結果のオブジェクトが `(B')` の `call` 作用の呼び出し結果になります。-->
 
-마지막으로, 통신처리가 끝나면 다시 리퀘스트를 기다리는 상태가 되었는지 확인합니다. Task를 동기적으로 썻기에, 테스트코드도 동기적으로 되었습니다.
+마지막으로, 통신처리가 끝나면, 다시 리퀘스트를 기다리는 상태가 되었는지 확인합니다. Task를 동기적으로 썻기에, 테스트 코드도 동기적으로 되었습니다.
 
 <!--最後に、通信処理が終わったら再度リクエストを受け付ける状態になっているか確認しています。タスクを同期的に書いたことで、テストコードも同期的になっています。-->
 
@@ -624,7 +624,7 @@ Task의 설명으로 이것 저것 넘어가버렸기에, 조금더 redux-saga�
 
 <!--### redux-sagaを組み込む-->
 
-예제 코드의 디렉토리를 보면 금새 알아차릴지 모르겠지만, redux-saga를 쓸 땐 2가지를 합니다. 하나는 Store에 Middleware를 집어넣고, 다른 하나는 Task를 정의합니다. 이하는 전형적인 셋업 코드입니다. `redux-logger`는 필요하지 않으면 지워주세요.
+예제 코드의 디렉토리를 보면 금새 알아차리셨을지 모르겠지만, redux-saga를 쓸 땐 2가지를 합니다. 하나는 Store에 Middleware를 집어넣고, 다른 하나는 Task를 정의합니다. 이하는 전형적인 셋업 코드입니다. `redux-logger`는 필요하지 않으면 지워주세요.
 
 <!--サンプルコードのディレクトリを見てもらった方が手っ取り早いかもしれませんが、redux-sagaを使うときは２つのことをします。１つはStoreへのMiddleware組み込み、そしてもう１つはタスクの定義です。以下は典型的なセットアップのコードになります。`redux-logger` は不要であれば削除してください。-->
 
@@ -706,7 +706,7 @@ if (el) {
 }
 ```
 
-이미 파악하셨을거라 생각되지만, 위의 구성이면 Provider 컴포넌트가 마운트되었는지 말았는지에 상관없이 Store가 초기화되어 Middleware도 초기화되고 맙니다. 그 결과, 기동시 리퀘스트를 보내는 형태의 Task라면 엉뚱한 타이밍에 사태가 벌어지는 것입니다. 조심하도록 합시다. (자숙을 포함해서)
+이미 파악하셨을거라 생각되지만, 위의 구성이면 Provider 컴포넌트가 마운트되었는지 말았는지에 상관없이 Store가 초기화되어 Middleware도 초기화되고 맙니다. 그 결과, 기동시 리퀘스트를 보내는 형태의 Task라면 엉뚱한 타이밍에 사태가 벌어지는 것입니다. 조심하도록 합시다. (저도 반성을..)
 
 <!--もうおわかりと思いますが、以上の構成にするとProviderコンポーネントがマウントされるかどうかに関わらずStoreは初期化されており、Middlewareも初期化されてしまいます。その結果、起動時にリクエストを飛ばすタイプのタスクだと誤爆するというわけです。気を付けましょう（自戒を込めて）。-->
 
@@ -751,7 +751,7 @@ sagaMiddleware.run(rootSaga);
 
 <!--### デバッグ-->
 
-하나하나의 Task는 독립해서 실행되므로, 할 것을 제한해서 단순하게 유지하면 디버그 툴이 필요할 만큼 복잡해지진 않겠지만, 일단, redux-saga에는 모니터링 툴을 넣을 수 있는 인터페이스가 준비되어 있습니다. `effectTriggered`, `effectResolved`, `effectRejected`, `effectCancelled` 의 4개의 프로퍼티를 가지는 오브젝트를 [createSagaMiddleware](http://yelouafi.github.io/redux-saga/docs/api/index.html#createsagamiddlewareoptions) 함수의 오브젝트로써 넘겨줍니다.
+Task는 하나하나 독립하게 실행되므로, 할 것을 제한해서 단순하게 유지하면 디버그 툴이 필요할 만큼 복잡해지진 않겠지만, 일단, redux-saga에는 모니터링 툴을 집어 넣을 수 있는 인터페이스가 준비되어 있습니다. `effectTriggered`, `effectResolved`, `effectRejected`, `effectCancelled` 의 4개의 프로퍼티를 가지는 오브젝트를 [createSagaMiddleware](http://yelouafi.github.io/redux-saga/docs/api/index.html#createsagamiddlewareoptions) 함수의 오브젝트로써 넘겨줍니다.
 
 <!--１つ１つのタスクは独立して実行されるので、やることを絞って単純に保てばデバッグツールが必要なほど複雑になることは少ないのですが、一応 redux-saga にはモニタリングツールを組み込むためのインターフェイスが用意されています。`effectTriggered`, `effectResolved`, `effectRejected`, `effectCancelled` の４つのプロパティを持つオブジェクトを [createSagaMiddleware](http://yelouafi.github.io/redux-saga/docs/api/index.html#createsagamiddlewareoptions) 関数のオプションとして渡します。-->
 
@@ -765,7 +765,7 @@ export default function configureStore(initialState) {
   const store = createStore(...
 ```
 
-모니터의 적용은 일단 [redux-saga의 examples/sagaMonitor](https://github.com/yelouafi/redux-saga/blob/master/examples%2FsagaMonitor%2Findex.js)를 써봐주세요. 더욱이, 이 모니터는 디폴트로 아무것도 표시하지 않으므로, 코드중의 `VERBOSE`라는 변소를 `true`로 바꾸면 소란스러워지기 시작합니다. 단, `redux-logger`와 같이 항상 로그가 흘러가는 걸 보는게 아니라, 필요할 떄 브라우저툴로부터 `window.$$LogSagas` 함수를 불러서 Task tree를 지켜보는게 주 목적 입니다. 실행해보면 다음과 같이 나타납니다. 하지만, 그다지 멋지지 않으므로 [D3.js](https://d3js.org/)로 시각화 툴을 만들어 볼 생각입니다.
+모니터의 적용은 일단 [redux-saga의 examples/sagaMonitor](https://github.com/yelouafi/redux-saga/blob/master/examples%2FsagaMonitor%2Findex.js)를 써봐주세요. 그리고, 이 모니터는 디폴트로 아무것도 표시하지 않으므로, 코드중의 `VERBOSE`라는 변소를 `true`로 바꾸셔야 떠들기 시작합니다. 단, `redux-logger`와 같이 로그가 계속해서 흘러가는 걸 보는게 아니라, 필요할 떄 브라우저툴로부터 `window.$$LogSagas` 함수를 불러서 Task tree를 지켜보는게 주 목적 입니다. 실행해보면 다음과 같이 나타납니다. 하지만, 그다지 멋있어 보이진 않으므로 [D3.js](https://d3js.org/)로 시각화 툴을 만들어 볼 생각입니다.
 
 <!--モニターの実装はとりあえず[redux-sagaのexamples/sagaMonitor](https://github.com/yelouafi/redux-saga/blob/master/examples%2FsagaMonitor%2Findex.js)を使ってみてください。尚、このモニターはデフォルトでは何も表示しないので、コード中の `VERBOSE` という変数を `true` にすると騒がしくなります。ただ、`redux-logger` のように常にログが垂れ流されるという使い方ではなくて、必要なときにブラウザの開発者ツールから `window.$$LogSagas` 関数を呼び出してタスクツリーを眺めるのがメインです。実行してみたときの様子は以下です。が、あまりかっこよくないので[D3.js](https://d3js.org/)で可視化するツールを作るつもりです。-->
 
@@ -779,7 +779,7 @@ export default function configureStore(initialState) {
 
 <!--## 実践 redux-saga-->
 
-redux-saga에는 [풍부한 예제](https://github.com/yelouafi/redux-saga/tree/master/examples)가 준비되어 있습니다. 무언가 곤란하여 힌트가 없나 싶을 떄 보면 좋습니다. ...하지만, 이것으로 끝내버리기엔 아쉽기에 다른 이용 예를 소개합니다. 특히 몇일전 릴리즈된 [0.10.0](https://github.com/yelouafi/redux-saga/releases/tag/v0.10.0)의 신기능인 [eventChannel](http://yelouafi.github.io/redux-saga/docs/api/index.html#eventchannelsubscribe-buffer-matcher)를 사용한 예제는 그다지 없으므로 참고가 될 듯 합니다.
+redux-saga에는 [풍부한 예제](https://github.com/yelouafi/redux-saga/tree/master/examples)가 준비되어 있습니다. 뭔가 곤란할 때, 힌트가 없나 싶을 때 보면 좋습니다. ...하지만, 이걸로 마무리하기엔 아쉽기에 다른 이용 예를 소개합니다. 특히 몇일전 릴리즈된 [0.10.0](https://github.com/yelouafi/redux-saga/releases/tag/v0.10.0)의 신기능인 [eventChannel](http://yelouafi.github.io/redux-saga/docs/api/index.html#eventchannelsubscribe-buffer-matcher)를 사용한 예제는 그다지 없으므로 참고가 될 듯 합니다.
 
 <!--redux-sagaには[豊富なサンプル](https://github.com/yelouafi/redux-saga/tree/master/examples)が用意されています。なにか困ったらヒントがないか見てみるといいです。・・・が、これで終わらせてしまうのはあんまりなので別の利用例を紹介します。特に先日リリースされた [0.10.0](https://github.com/yelouafi/redux-saga/releases/tag/v0.10.0) の新機能である [eventChannel](http://yelouafi.github.io/redux-saga/docs/api/index.html#eventchannelsubscribe-buffer-matcher) を使ったサンプルはあまり出回ってないので参考になるかもしれません。-->
 
@@ -787,7 +787,7 @@ redux-saga에는 [풍부한 예제](https://github.com/yelouafi/redux-saga/tree/
 
 <!--### オートコンプリート-->
 
-텍스트 필드에 자동완성을 넣을 때, 단순하게 만든다면 dispatch된 Action을 `take`로 받아들여 `call`로 요청을 발행하여 결과를 `put`으로 하면 좋아보입니다. 단, 이것은 일반적인 통신처리로써, 그대로 적용해버리면 입력 할 때마다 리퀘스트를 보내기에 그다지 좋지 못합니다. 이 예제에서는 초기의 못생긴 자동완성으로부터 멋지게 고쳐나가는 과정이 적혀있습니다.
+텍스트 필드에 자동 완성 기능을 넣을 때, 단순하게 만든다면 dispatch된 Action을 `take`로 받아들여 `call`로 요청을 발행하여 결과를 `put`으로 하면 좋아보입니다. 단, 이것은 일반적인 통신처리로써, 그대로 적용해버리면 입력 할 때마다 리퀘스트를 보내기에 그다지 좋지 못합니다. 이 예제에서는 초기의 못생긴 자동 완성 기능을 멋지게 고쳐나가는 과정을 보여드리겠습니다.
 
 <!--テキストフィールドでオートコンプリートを実装するとき、単純にやるならdispatchされたActionを `take` で受け取って `call` でリクエストを発行して結果を `put` すればよさそうです。ただ、これは一般的な通信処理なので、素直に実装すると入力のたびにリクエストが投げられてしまってあまりよろしくありません。このサンプルでは初期のイケてないオートコンプリートからイケてるオートコンプリートに改良していく過程を書いてみます。-->
 
@@ -821,7 +821,7 @@ export default function* rootSaga() {
 }
 ```
 
-통신처리의 코드 그대로이네요. 참고로 실은 이 코드, 큰 문제를 지니고 있습니다. 무엇인가 하면, 통신처리의 완료를 기다리는 동안 dispatch되는 Action을 흘려보내 버립니다. 예제에서는 통신처리부분을 더미로써 `setTimeout`을 사용하여 시간이 걸리듯이 만들었기 때문에, 이 부분의 시간을 3초 등으로 바꾸면 확실하게 보일겁니다.
+통신처리의 코드 그대로이네요. 참고로 실은 이 코드, 큰 문제를 지니고 있습니다. 무엇인가 하면, 통신처리의 완료를 기다리는 동안 dispatch되는 Action을 흘려보내 버립니다. 예제에서는 통신처리부분을 더미로써 `setTimeout`을 사용하여 시간이 걸리듯이 만들었기 때문에, 이 부분의 시간을 3초 정도로 바꾸면 확실하게 보일겁니다.
 
 <!--通信処理のコードそのままですね。ちなみに実はこのコード、大きな問題を抱えています。なんと、通信処理の完了待ちをしている間にdispatchされたActionを取りこぼします。サンプルでは通信処理部分をダミーにして `setTimeout` を使って時間がかかっているように見せかけているのでその部分の時間を3秒とかに変更してみるとはっきりすると思います。-->
 
@@ -829,7 +829,7 @@ export default function* rootSaga() {
 
 <!--#### 取りこぼし対策-->
 
-이런 이유로 먼저 멋지게 만들기 전에 버그를 잡읍시다. 문제는 `call`로 `API.suggest`의 결과를 기다리는 곳입니다. 이것이 불러지는걸 기다리지 않고 `take`로 돌아가면 흘리지는 않게됩니다. 그렇다면 `fork`로 새로운 Task를 기동하는것이 좋아보이네요.
+이런 이유로 멋지게 만들기 앞서 버그를 잡읍시다. 문제는 `call`로 `API.suggest`의 결과를 기다리는 곳입니다. 이것이 불러지는걸 기다리지 않고 `take`로 돌아가면 흘리지는 않게됩니다. 그렇다면 `fork`로 새로운 Task를 기동시키는 것이 좋아보이네요.
 
 <!--というわけでまずはイケてるオートコンプリートにする前にバグを取りましょう。問題は `call` で `API.suggest` の結果を待つところです。これの呼び出しを待たずに `take` に戻れれば取りこぼしはなくなります。そうすると `fork` で新しくタスクを起動するのがよさそうですね。-->
 
@@ -857,7 +857,7 @@ export default function* rootSaga() {
 }
 ```
 
-이런 형태가 됩니다. 이것으로 `handleRequestSuggest` Task로 통신처리까지 핸들링하고 있지만, `call` 이후의 부분을 따로 Task로 나누었습니다. 아무리 이번과 같은 문제가 일어나지 않는 다고 해도, Action을 감시하는 Task와 통신처리를 하는 태스크를 나누는 것이 좋아보입니다. 이걸로 막힘없이 리퀘스트도 날릴 수 있네요! 좋습니다!
+이런 형태가 됩니다. 이것으로 `handleRequestSuggest` Task로 통신처리까지 핸들링하고 있지만, `call` 이후의 부분을 따로 Task로 나누었습니다. 아무리 이번과 같은 문제가 일어나지 않는 다고 해도, Action을 감시하는 Task와 통신처리를 하는 태스크를 나누는 것이 좋아보입니다. 이걸로 막힘없이 리퀘스트도 날릴 수 있네요! 잘 됐네요!
 
 <!--こんな感じになります。これまでは `handleRequestSuggest` タスクで通信処理までハンドリングしていましたが、 `call` 以降の部分を別タスクに分けました。たとえ今回みたいな問題が起きていなかったとしても、Actionを監視するタスクと通信処理をするタスクを分けるというのはよさそうです。これでガンガンリクエストが飛びますね！よかった！-->
 
@@ -865,7 +865,7 @@ export default function* rootSaga() {
 
 <!--#### 別の解決方法-->
 
-자, 버그는 고쳤지만 조금 더 공부를 위해 옆길로 새겠습니다. redux-saga로 Task를 쓰고 있으면 위의 패턴이 빈번하게 나오기 때문에 [`takeEvery`](http://yelouafi.github.io/redux-saga/docs/api/index.html#takeeverypattern-saga-args)가 준비되어있습니다. 이것을 사용하여 다시 써봅시다.
+자, 버그는 고쳤지만 공부를 위해 잠깐 옆길로 새겠습니다. redux-saga로 Task를 쓰고 있으면 위의 패턴이 빈번하게 나오기 때문에 [`takeEvery`](http://yelouafi.github.io/redux-saga/docs/api/index.html#takeeverypattern-saga-args)가 준비되어있습니다. 이것을 사용하여 다시 써봅시다.
 
 <!--さて、バグは直りましたがちょっと勉強のために寄り道します。redux-sagaでタスクを書いていると上記のようなパターンが頻出するため [`takeEvery`](http://yelouafi.github.io/redux-saga/docs/api/index.html#takeeverypattern-saga-args) が用意されています。これを使って書き換えてみましょう。-->
 
@@ -892,7 +892,7 @@ export default function* rootSaga() {
 }
 ```
 
-`takeEvery` 는 지정한 Action의 dispatch를 기다려, 그 Action을 인수로써 Task를 기동합니다. 이전은 헬퍼함수로써 제공되었지만, [0.14.0](https://github.com/redux-saga/redux-saga/releases/tag/v0.14.0)부터 정식으로 Effect가 되었습니다. 단, 헬퍼의 `takeEvery`는 없어질 예정이므로 바꾸실걸 추천합니다. 그리고, Effect로써 `takeEvery`와 헬퍼의 `takeEvery`는 다릅니다. 따라서 Effect인 `takeEvery`를 `yield*`로 사용해서는 안됩니다.
+`takeEvery` 는 지정한 Action의 dispatch를 기다려, 그 Action을 인수로써 Task를 기동합니다. 이전엔 헬퍼 함수로써 제공되었지만, [0.14.0](https://github.com/redux-saga/redux-saga/releases/tag/v0.14.0)부터 정식으로 Effect가 되었습니다. 단, 헬퍼의 `takeEvery`는 없어질 예정이므로 바꾸실걸 추천합니다. 그리고, Effect로써 `takeEvery`와 헬퍼의 `takeEvery`는 다릅니다. 따라서 Effect인 `takeEvery`를 `yield*`로 사용해서는 안됩니다.
 
 <!--`takeEvery` は指定したActionのdispatchを待って、そのActionを引数としてタスクを起動します。以前はヘルパー関数として提供されていましたが、[0.14.0](https://github.com/redux-saga/redux-saga/releases/tag/v0.14.0) から正式な作用になりました。なお、ヘルパー版の `takeEvery` は廃止予定となっているので移行をおすすめします。また、作用としての `takeEvery` と ヘルパーの `takeEvery` は異なるものです。したがって、作用としての `takeEvery` を `yield*` で使用することはできません。-->
 
@@ -916,7 +916,7 @@ export default function* rootSaga() {
 4.  まだリクエストは投げられない
 5.  何も入力がない状態が一定時間続くとリクエストが投げられる-->
 
-기본적으로는 일정시간 기다리면 리퀘스트를 개시하는 지연실행 Task를 정의하여, 입력이 있을 때마다 그것을 기동하게 됩니다. 단, 입력이 있었을때에 이미 지연 Task가 기동되어 있을 때는, 먼저 그것을 취소하고나서 새로운 Task를 기동시킬 필요가 있습니다. 따라서 지연실행 Task는 아무리 많아도 1개만 실행됩니다. 그러면 코드를 봅시다.
+기본적으로는 일정 시간 기다리면 리퀘스트를 개시하는 지연실행 Task를 정의하여, 입력이 있을 때마다 그것을 기동하게 됩니다. 단, 입력이 있었을때에 이미 지연 Task가 기동되어 있을 때는, 먼저 그것을 취소하고나서 새로운 Task를 기동시킬 필요가 있습니다. 따라서 지연실행 Task는 아무리 많아도 1개만 실행됩니다. 그럼 코드를 봅시다.
 
 <!--基本的には一定時間待ってからリクエストを開始する遅延実行タスクを定義して、入力があるたびにそれを起動することになります。ただし、入力があったときにすでに遅延実行タスクを起動しているときは、まずそれをキャンセルしてから新しいタスクを起動する必要があります。よって遅延実行タスクは最大でも１つしか並行実行されません。それではコードを見てみます。-->
 
@@ -958,7 +958,7 @@ export default function* rootSaga() {
 }
 ```
 
-포인트는 2개입니다. 1번째 포인트는 넘겨진 Task를 지연처리하는 `forkLater`함수는 `fork` Effect를 돌려주는 함수입니다. `call` Effect로 `delay` 함수를 불러와 일정시간을 기다리고, `delay` 함수가 돌려주는 Promise가 resolve되면 제어가 돌아와서 Task를 `fork`합니다. 참고로 `delay`함수는 `redux-saga` 모듈로부터 읽어들입니다. 2번째 포인트는 `handleRequestSuggest` Task에 실행중의 지연실행 Task가 있는 경우, 그것을 취소하고나서 기동시키는 부분입니다. `fork` Effect를 `yield` 했을 때 리턴 값은 [Task 인터페이스](http://yelouafi.github.io/redux-saga/docs/api/index.html#task)를 가지는 오브젝트로 기동된 Task의 상태를 가져오거나 취소하는 등, 이것저것 할 수 있습니다.
+주목할 포인트는 2개입니다. 1번째 포인트는 넘겨진 Task를 지연처리하는 `forkLater`함수는 `fork` Effect를 돌려주는 함수입니다. `call` Effect로 `delay` 함수를 불러와 일정시간을 기다리고, `delay` 함수가 돌려주는 Promise가 resolve되면 제어가 돌아와서 Task를 `fork`합니다. 참고로 `delay`함수는 `redux-saga` 모듈로부터 읽어들입니다. 2번째 포인트는 `handleRequestSuggest` Task에 실행중의 지연실행 Task가 있는 경우, 그것을 취소하고나서 기동시키는 부분입니다. `fork` Effect를 `yield` 했을 때 리턴 값은 [Task 인터페이스](http://yelouafi.github.io/redux-saga/docs/api/index.html#task)를 가지는 오브젝트로 기동된 Task의 상태를 가져오거나 취소하는 등, 이것저것 할 수 있습니다.
 
 <!--ポイントは2つあります。１つ目のポイントは渡されたタスクを遅延実行する `forkLater` 関数は `fork` 作用を返す関数です。`call` 作用で `delay` 関数を呼び出して一定時間待ち、`delay` 関数が返すPromiseがresolveされたら制御が戻ってくるのでタスクを `fork` します。ちなみに `delay` 関数は `redux-saga` モジュールからの読み込みです。２つ目のポイントは `handleRequestSuggest` タスクで実行中の遅延実行タスクがあった場合はそれをキャンセルしてから起動する部分です。`fork` 作用を `yield` したときの戻り値は [Taskインターフェイス](http://yelouafi.github.io/redux-saga/docs/api/index.html#task)を実装したオブジェクトで、起動したタスクの状態を取得したりキャンセルしたり、いろいろできます。-->
 
@@ -977,7 +977,7 @@ function* handleRequestSuggest() {
 }
 ```
 
-자동 완성의 기능적으로는 멋지게 되었으니, 코드도 멋지게 만들어 봅시다.
+자동 완성의 기능만 생각하면 멋지게 되었으니, 이제 코드도 멋지게 만들어 봅시다.
 
 <!--オートコンプリートの機能的にはイケてるので、コードの方もイケてる実装にしてみましょう。-->
 
@@ -985,7 +985,7 @@ function* handleRequestSuggest() {
 
 <!--#### さらにイケてる実装-->
 
-구현하는 방침으로 `handleRequestSuggest` Task에 흩어진 취소를 처리하는 부분을 분리시킵니다. 이것은 1개의 Task로 처리하는 것을 줄여 역할을 명확하게 하기 위해 적극적으로 해보고 싶었던 개선입니다.
+어떻게 하냐면, `handleRequestSuggest` Task에 흩어진 취소를 처리하는 부분을 분리시킵니다. 이는 1개의 Task로 처리하는 일을 줄여 역할을 명확하게 하기 위해 적극적으로 해보고 싶었던 개선 사항입니다.
 
 <!--方針としては `handleRequestSuggest` タスクに散らばってるキャンセル処理の部分を分離します。これは１つのタスクでやることを減らして役割を明確にするという意味で積極的にやっていきたい改善です。-->
 
@@ -1027,11 +1027,11 @@ export default function* rootSaga() {
 }
 ```
 
-`handleRequestSuggest` Task가 매우 깔끔해졌습니다. `fork(runRequestSuggest, payload)`였던 부분이 `fork(lazily, runRequestSuggest, payload)` 로 바뀌었을 뿐이기에 변화는 적습니다. 하지만 적어도 영어처럼 "fork lazily"로 읽어지기에 의도를 전달하기가 쉬워졌을 겁니다.
+`handleRequestSuggest` Task가 매우 깔끔해졌습니다. `fork(runRequestSuggest, payload)`였던 부분이 `fork(lazily, runRequestSuggest, payload)`로 바뀌었을 뿐이기에 변화는 많진 않습니다. 하지만 적어도 영어처럼 "fork lazily"로 읽어지기에 의도를 전달하기가 쉬워졌을 겁니다.
 
 <!--`handleRequestSuggest` タスクがとてもすっきりしました。`fork(runRequestSuggest, payload)` だった部分が `fork(lazily, runRequestSuggest, payload)` に変わるだけなので変化も少ないです。しかも英語っぽく「fork lazily」と読めるので意図も伝わりやすいかもしれません。-->
 
-마법처럼 지연 실행해주는 `lazily` Task이지만 이것은 `createLazily` 함수로 생성하고 있습니다. 실행중의 Task를 유지시키기 위해 클로져로 만들 필요가 있었습니다. 하고있는건 전의 구현과 동일합니다.
+마법처럼 지연 실행해주는 `lazily` Task이지만 이것은 `createLazily` 함수로 생성하고 있습니다. 실행중의 Task를 존속시키기 위해 클로져로 만들 필요가 있었습니다. 하는 일은 이전의 구현과 동일합니다.
 
 <!--魔法のように遅延実行してくれる `lazily` タスクですがこれは `createLazily` 関数で生成しています。実行中のタスクを保持するためにクロージャにする必要がありました。やっていることは１つ前の実装と同じです。-->
 
@@ -1059,7 +1059,7 @@ export default function* rootSaga() {
 <!--デモ: [Throttle](http://kuy.github.io/redux-saga-examples/throttle.html)
 サンプルコード: [kuy/redux-saga-examples > throttle](https://github.com/kuy/redux-saga-examples/tree/master/throttle)-->
 
-포스팅 리스트와 같이 많은 컨텐츠를 한번에 읽어와서, 더욱이 각각의 컨텐츠마다 리퀘스트를 요청하면, 컨텐츠의 수만큼 리퀘스트를 동시에 보내게되니 사단이 나겠죠. 서버부하와 같은 문제가 없다고 해도, Dos공격으로 판단되어 리퀘스트가 차단되는 일도 있을겁니다. 또 통신처리의 경우, 대량발생하는 Action에 따른 Task의 동시 실행 가능한 수 이상은 시작하지 않고 기다리게 만들어서, 앞선 Task가 완료되면 순서대로 다음 Task를 실행시키는 큐(Queue)가 필요할때가 있습니다. 이 샘플은 그러한 Task기동수의 스로틀링을 redux-saga로 구현합니다.
+포스팅 리스트와 같이 많은 컨텐츠를 한번에 읽어와서, 더욱이 각각의 컨텐츠마다 리퀘스트를 요청하면, 컨텐츠의 수만큼 리퀘스트를 동시에 보내게되니 심각한 일이 일어나겠죠. 서버부하와 같은 문제가 없다고 해도, Dos공격으로 판단되어 리퀘스트가 차단되는 일도 있을 겁니다. 또 통신처리의 경우, 대량발생하는 Action에 따른 Task의 동시 실행 가능한 수 이상은 시작하지 않고 기다리게 만들어서, 앞선 Task가 완료되면 순서대로 다음 Task를 실행시키는 큐(Queue)가 필요할때가 있습니다. 이번 예제는 기동중인 Task의 수를 조절하는 스로틀링을 redux-saga로 구현합니다.
 
 <!--一覧ページなどでたくさんのコンテンツを一気に読み込んで、さらに個々のコンテンツごとにリクエストを開始すると、コンテンツの数だけリクエストが同時に飛んでひどいことになりますね。サーバー負荷的に問題はなかったとしても、DoS攻撃とみなされてリクエストがブロックされる、ということもありえます。また通信処理に限らず、大量発生するActionに付随するタスクを指定した同時実行数以上は起動せずに待たせておき、完了したら順番にタスクを起動するキューが欲しくなることがあります。このサンプルではこういったタスク起動数のスロットリングをredux-sagaで実装しています。-->
 
@@ -1132,11 +1132,11 @@ export default function* rootSaga() {
 }
 ```
 
-자동완성 예제는 1개의 Task만 동시에 실행시키고, 새로운 Task가 오면 처리중인 Task를 취소시키고 나서 기동을 하였습니다. 이미 Task가 기동중인지 아닌지를 판정하기위해 상태를 가질 필요가 있고, 그것을 클로져내에서 다루게 하는 어프로치였습니다. 스로틀링으로도 실행중의 Task를 파악할 필요가 있기때문에 무언가의 상태를 기다릴 필요가 있는 점이 공통됩니다. 이번엔 다른 어프로치로, 상태를 Task 내부에서 기다리지 않고, 대신 Store에다 해둡니다. 이것으로 실행상태가 뷰에서 실시간 표시가 가능합니다.
+자동완성 예제는 1개의 Task만 동시에 실행시키고, 새로운 Task가 오면 처리중인 Task를 취소시키고 나서 기동을 하였습니다. 이미 Task가 기동중인지 아닌지를 판정하기 위해 상태를 가질 필요가 있었고, 그것을 클로져 내에서 다루게 하는 어프로치였습니다. 스로틀링으로도 실행중의 Task를 파악할 필요가 있기 때문에 무언가의 상태를 기다릴 필요가 있는 점이 공통됩니다. 하지만 이번엔 다른 어프로치로, 상태를 Task 내부에서 가지지 않고, 대신 Store에다 넣어둡니다. 이렇게 하면 실행 상태가 뷰에서 실시간 표시가 가능합니다.
 
 <!--オートコンプリートのサンプルは同時実行数は１で、かつ新しいタスクが来たら処理中のタスクをキャンセルしてから起動するという挙動でした。すでにタスクが起動中かどうかを判定するために状態を持つ必要があり、それをクロージャ内に保持するというアプローチです。スロットリングでも実行中のタスクを把握する必要があるため何かしらの状態を持つ必要があるという点で共通しています。せっかくなのでこのサンプルでは別のアプローチをとり、状態をタスク内部に持たず、代わりにStoreに格納します。それによってタスクの実行状況がビュー側にリアルタイムに表示できます。-->
 
-위는 `sagas.js`의 코드만 보여주었지만, 이번은 상태를 Store가 가지게하므로 전체를 이해하기 위해 `reducers.js`도 중요하므로 이것도 훑어봐주세요.
+위는 `sagas.js`의 코드만 보여주었지만, 이번엔 상태를 Store가 가지게 하므로 전체를 이해하기 위해 `reducers.js`도 중요하니 한번 훑어봐주세요.
 
 <!--上には `sagas.js` のコードしか示していませんが、今回は状態をStoreに持たせているので `reducers.js` の方も全体を理解する上では大事なので目を通してみてください。-->
 
@@ -1144,7 +1144,7 @@ export default function* rootSaga() {
 
 <!--#### ２つのタスク-->
 
-구현은 크게 나누면 2개의 Task, `handleRequestSomething`와 `handleThrottle`로 나뉩니다. 전자는 `REQUEST_SOMETHING` Action의 dispatch를 감시하여 실행해야할 Task만을 보내줍니다. 후자는 조금 복잡합니다. `handleRequestSomething` Task로 부터 실행 요청된 Task를 일단 큐에 넣어두고, 동시실행수를 조정하면서 처리해갑니다. 스로틀링이 없는 실행 `fork(runSomething)`과 스로틀링이 있는 실행 `fork(withThrottle, runSomething)`에선 코드의 차이가 조금만 있도록 만들었습니다.
+구현은 크게 나누면 2개의 Task, `handleRequestSomething`와 `handleThrottle`로 나뉩니다. 전자는 `REQUEST_SOMETHING` Action의 dispatch를 감시하여 실행해야할 Task만을 보내줍니다. 후자는 조금 복잡합니다. `handleRequestSomething` Task로 부터 실행 요청된 Task를 일단 큐에 넣어두고, 동시 실행 수를 조정하면서 처리해갑니다. 스로틀링이 없는 실행 `fork(runSomething)`과 스로틀링이 있는 실행 `fork(withThrottle, runSomething)`에선 코드의 차이가 조금만 있도록 만들었습니다.
 
 <!--実装は大きくわけて２つのタスク、`handleRequestSomething` と `handleThrottle` に分かれます。前者は `REQUEST_SOMETHING` Actionのdispatchを監視して実行すべきタスクをひたすら投げます。後者はちょっと複雑です。`handleRequestSomething` タスクから実行依頼されたタスクをいったんキューに入れて、同時実行数を調整しながら処理していきます。スロットリングなしの実行 `fork(runSomething)` とスロットリングありの実行 `fork(withThrottle, runSomething)` ではコードの違いはわずかになるよう実装しました。-->
 
@@ -1152,7 +1152,7 @@ export default function* rootSaga() {
 
 <!--#### ２重のwhileループ-->
 
-`handleThrottle` Task를 보면 조금 낯설은 2중의 while 루프가 있습니다. 첫번째 루프는 익숙한 패턴이므로 괜찮네요. 2번째 루프는 실행가능한 job의 수에 여유가 있는한 job의 실행을 시작 위한 것입니다. 코드의 가동성을 우선해서 while 루프로 만들어져 있지만, 실행 가능한 job의 수와 대기 상태의 job을 만들어 한번에 실행시켜도 괜찮습니다.
+`handleThrottle` Task를 보면 조금 낯설은 2중의 while 루프가 있습니다. 첫번째 루프는 익숙한 패턴이므로 괜찮을 겁니다. 2번째 루프는 실행가능한 job의 수에 여유가 있는한 job의 실행을 시작 위한 것입니다. 코드의 가독성을 우선해서 while 루프로 만들어져 있지만, 실행 가능한 job의 수와 대기 상태의 job을 만들어 한번에 실행시켜도 괜찮습니다.
 
 <!--`handleThrottle` タスクを見るとちょっと見慣れない２重のwhileループがあります。１つ目のループはおなじみのパターンなので大丈夫ですね。２つ目のループは実行可能なタスク数に空きがある限りジョブの実行を開始するためのものです。コードのわかりやすさを優先してwhileループにしていますが、実行可能なジョブ数と待ち状態のジョブを用意して一気に実行しても大丈夫です。-->
 
@@ -1174,7 +1174,7 @@ redux-saga로 인증처리를 어떻게 다루는지를 생각해봅시다.
 
 <!--redux-sagaで認証処理をどう扱うかについて考えてみます。-->
 
-만들고 싶은건, 유저가 로그인하여, 인증받고, 성공하면 화면전이를 하거나, 실패하면 그 이유를 표시하고, 로그아웃하면 다시 대기상태로 돌아가는 인증 라이프사이클의 전체입니다. 이러한 처리를 서버사이드에 구현하면, Cookie와 같은 토큰을 가지고 날아온 리퀘스트가 어떤 유저로부터 온건지를 식별할 필요가 있겠네요. 즉 처리자체는 리퀘스트단위로 되어있어 토막난 상태입니다. 그것을 redux-saga의(뭐 예제는 혼자서 하므로 식별하는게 그다지 의미없지만) Task가 일시 정지시키는게 가능하다는 특징을 살려서, 인증 라이프사이클 전체를 1개의 Task가 관리하도록 만들어보겠습니다. 한마디로 세션 유지에 Task를 쓰는 형식입니다.
+만들고 싶은건, 유저가 로그인하여, 인증받고, 성공하면 화면전이를 하거나, 실패하면 그 이유를 표시하고, 로그아웃하면 다시 대기상태로 돌아가는, 인증 라이프사이클의 전체입니다. 이러한 처리를 서버사이드에 구현하면, Cookie와 같은 토큰을 가지고 날아온 리퀘스트가 어떤 유저로부터 온 건지를 식별할 필요가 있습니다. 즉 처리 자체는 리퀘스트 단위로 되어 토막난 상태입니다. 그것을 redux-saga의(뭐 예제는 혼자서 하므로 식별하는게 그다지 의미없지만) Task가 일시 정지시키는게 가능하다는 특징을 살려서, 인증 라이프사이클 전체를 1개의 Task가 관리하도록 만들어보겠습니다. 한마디로 세션 유지에 Task를 쓰는 형식입니다.
 
 <!--実現したいことは、ユーザーがログインして、認証して、成功したら例えば画面遷移をする、失敗したらその旨を表示する、ログアウトしたらまた待ち受け状態に戻る、というような認証のライフサイクル全体です。こういった処理をサーバーサイドで実装すると、Cookieのようなトークンを持たせて飛んできたリクエストがどのユーザーによるものなのかを識別する必要がありますね。つまり処理自体はリクエスト単位になっていてぶつ切れになります。それをredux-sagaの（まぁ１人しかいないから識別する意味なんてないんだけど）タスクが一時停止可能であるという特徴を活かして、認証のライフサイクル全体を１つのタスクが張り付いて管理するように実装してみます。つまりセッションの維持にタスクを使うイメージです。-->
 
@@ -1262,11 +1262,11 @@ function* pageSaga() {
 
 <!--#### ２つのタスク-->
 
-해야할 일은 인증처리의 라이프사이클을 신경써주는 것과, 로그인 성공시에 페이지 전이를 하는 2개입니다. 이것들은 물론 1개의 Task로 구현 가능하지만, redux-saga's way(라는게 있을지는 모르지만)에 따라 제대로 역할별로 Task를 나누어, 각각 `authSaga`와 `pageSaga`로써 정의합니다.
+해야 할 일은 인증처리의 라이프사이클을 관리하는 것과, 로그인 성공시에 페이지 전이를 하는 2개입니다. 이것들은 물론 1개의 Task로 구현 가능하지만, redux-saga's way(라는게 있을지는 모르지만)에 따라 제대로 역할별로 Task를 나누어, 각각 `authSaga`와 `pageSaga`로써 정의합니다.
 
 <!--やるべきことは認証処理のライフサイクルの面倒を見ることと、ログイン成功時にページ遷移をすることの２つです。これらはもちろん１つのタスクとして実装できますが、redux-saga's way（というのがあるのかわかりませんが）に従ってきっちり役割ごとにタスクを分けて、それぞれ `authSaga` と `pageSaga` として定義しています。-->
 
-여기까지의 2개의 예제에선 필요에 따라 Task내부에 외부의 상태를 가지고 있었습니다. 이번 예제는 인증처리의 라이프사이클이 어디까지 되어있나를 상태로 가지는 것을 적극적으로 활용하는 예입니다. 1개의 처리는 1개의 태스크가 항상 붙어있게되는데 redux-saga가 제공하는 태스크 실행 환경 덕분입니다. 그로인해 코드가 매우 직관적으로 됩니다.
+여기까지의 2개의 예제에선 필요에 따라 Task 내부에 외부의 상태를 가지고 있었습니다. 이번 예제는 인증처리의 라이프사이클이 어디까지 되어있나를 상태로 가지는 것을 적극적으로 활용하는 예입니다. 1개의 처리는 1개의 태스크가 항상 붙어있게 되는데 redux-saga가 제공하는 태스크 실행 환경 덕분입니다. 덕분에 코드가 매우 직관적으로 됩니다.
 
 <!--ここまでの２つのサンプルでは必要に迫られてタスク内部または外部に状態を持っていました。このサンプルでは認証処理のライフサイクルがどこまで進んだかというのを状態としてとらえて、それを積極的に活用している例になります。１つの処理に１つのタスクがずっと張り付いていられるのはredux-sagaが提供するタスク実行環境のおかげです。それによってコードがとても直感的になります。-->
 
@@ -1282,7 +1282,7 @@ function* pageSaga() {
 
 <!--### Socket.IO-->
 
-여기서부터 조금 다른 종을 소개하려 합니다. 먼저 [Socket.IO](http://socket.io/)와의 연계입니다.
+여기서부터 조금 다른 종류의 예를 소개하려 합니다. 먼저 [Socket.IO](http://socket.io/)와의 연계입니다.
 
 <!--ここからちょっと変わり種の紹介していきます。まずは[Socket.IO](http://socket.io/)との連携です。-->
 
@@ -1290,7 +1290,7 @@ function* pageSaga() {
 
 <!--サンプルコード: [kuy/redux-saga-chat-examples](https://github.com/kuy/redux-saga-chat-example)-->
 
-밑은 예제에서 발췌한 내용입니다.
+밑은 예제에서 가져온 내용입니다.
 
 <!--以下、抜粋です。-->
 
@@ -1354,11 +1354,11 @@ export default function* rootSaga() {
 }
 ```
 
-Socket.IO으로부터 메세지의 수신에 [eventChannel](http://yelouafi.github.io/redux-saga/docs/api/index.html#eventchannelsubscribe-buffer-matcher)을 사용하고 있습니다. 받은 Socket.IO의 이벤트마다 Redux의 Action으로 맵핑해주어 `put`으로 dispatch하고 있습니다. 거기에 Task의 연쇄적인 취소도 쓰고 있습니다.
+Socket.IO으로부터 메세지의 수신에 [eventChannel](http://yelouafi.github.io/redux-saga/docs/api/index.html#eventchannelsubscribe-buffer-matcher)을 사용하고 있습니다. 받은 Socket.IO의 이벤트마다 Redux의 Action으로 맵핑해주어 `put`으로 dispatch하고 있습니다. 거기에 Task의 연쇄적인 취소 역시 쓰여지고 있습니다.
 
 <!--Socket.IOからのメッセージの受信に[eventChannel](http://yelouafi.github.io/redux-saga/docs/api/index.html#eventchannelsubscribe-buffer-matcher)を使っています。受け取ったSocket.IOのイベントごとにReduxのActionにマッピングしてあげて `put` でdispatchしています。さらにタスクの連鎖的なキャンセルも使っています。-->
 
-이 예제는 어쨋든 작동하는지 돌려본 정도입니다. Read/Write의 부분이나 복수 채널 대응, 하나하나 맵핑이 귀찮아서 이벤트이름을 그대로 Action Types으로 쓰거나, Socket.IO의 통신상태를 모니터링하거나, 어떻게 다룰것인가에 아직 고민중입니다. 언젠가 그것들을 라이브러리로 만들어냈으면 좋겠다라고 생각하고 있습니다.
+이 예제는 대충 작동하는지만 돌려본 상태입니다. Read/Write의 부분이나 복수 채널 대응, 하나하나 맵핑이 귀찮아서 이벤트이름을 그대로 Action Types으로 쓰거나, Socket.IO의 통신상태를 모니터링하거나, 어떻게 다룰것인가에 아직 고민중입니다. 언젠가 그것들을 라이브러리로 만들어냈으면 좋겠다라고 생각하고 있습니다.
 
 <!--このサンプルはとりあず動かしてみた、というレベルです。Read/Writeの部分や、複数チャンネル対応、いちいちマッピングが面倒なのでイベント名をそのままAction Typesとして使うとか、Socket.IOの通信状況をモニタリングしたり、どうやって扱うべきなのかまだまだ悩んでいます。いずれそれらをライブラリという形で昇華できたらいいなぁと思ってます。-->
 
@@ -1374,7 +1374,7 @@ Socket.IO으로부터 메세지의 수신에 [eventChannel](http://yelouafi.gith
 
 <!--[最近大幅アップデート](http://jp.techcrunch.com/2016/05/20/20160518google-turns-firebase-into-its-unified-platform-for-mobile-developers/)があった[Firebase](firebase.google.com)を使って試しにredux-sagaで連携させてみたサンプルがこちらになります。題材はTwitterライクなミニブログサービスですが、実装が足りなすぎてただのチャットアプリみたいになってますね・・・。ブラウザのシークレットモードとかで複数開いて別々の名前でログインして投稿するとリアルタイムにタイムラインが更新されます。-->
 
-이러한 예제는 예제이상의 의미는 없습니다. 어떻게 redux-saga로 Firebase나 Socket.IO를 쓸 것인가에 너무 붙들리지는 말아주세요. 왜냐면 redux-saga는 기능적으론 Middleware의 서브셋이므로, redux-saga로 할 수 있는건 Middleware로도 가능합니다. 게다가 redux-saga로 만들면, 프로젝트의 도입할때 redux-saga가 필수가 됩니다. Middleware로 가능한 것을 redux-saga로 만들어서, 도입 장벽을 높이게 되면 의미없습니다. 이러한 기능은 순수하게 Middleware나 Store Enhancer 수준으로 구현하는것이 좋지 않을까 싶습니다.
+이러한 예제는 예제 이상의 의미는 없습니다. 어떻게 redux-saga로 Firebase나 Socket.IO를 쓸 것인가에 너무 집착하지는 말아주세요. 왜냐면 redux-saga는 기능적으론 Middleware의 서브셋이므로, redux-saga로 할 수 있는건 Middleware로도 가능합니다. 게다가 redux-saga로 만들면, 프로젝트의 도입할때 redux-saga가 필수가 됩니다. Middleware로 가능한 것을 redux-saga로 만들어서, 도입 장벽을 높이게 되면 의미가 없습니다. 이러한 기능은 순수하게 Middleware나 Store Enhancer 수준으로 구현하는것이 좋지 않을까 싶습니다.
 
 <!--これらのサンプルはサンプル以上の意味はありません。どうかredux-sagaでFirebaseとかSocket.IOを使うべきだ、と捉えないで下さい。なぜかというとredux-sagaは機能的にはMiddlewareのサブセットなので、redux-sagaでできることはMiddlewareでも可能です。さらにredux-sagaで作ってしまうと、プロジェクトに導入するときにredux-sagaが必須になります。Middlewareで可能なものをredux-sagaで作って、導入のハードルを上げる意味はありません。これらの機能は素直にMiddlewareかStore Enhancerレベルで実装してあげるのがいいのではないでしょうか。-->
 
@@ -1388,7 +1388,7 @@ Socket.IO으로부터 메세지의 수신에 [eventChannel](http://yelouafi.gith
 
 <!--## 銀の弾丸ではない-->
 
-redux-saga의 사용법을 다양한 각도에서 봤습니다. 뭐든 할 수 있을 것 같지만, redux-saga에도 제약이 있습니다. 모든 Middleware의 처리를 이식하는건 불가능 합니다. 예를들어 Middleware처럼 Action을 솎아 내는 건 못합니다. 그래서 이번 샘플은 [Redux의 middleware를 적극적으로 써보자](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e)에서 소개한 [Action을 Dispatch하기 전에 브라우저 확인 다이얼로그를 표시하자](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e#action%E3%82%92dispatch%E3%81%99%E3%82%8B%E5%89%8D%E3%81%AB%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%83%80%E3%82%A4%E3%82%A2%E3%83%AD%E3%82%B0%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B)를 그대로 이식하는건 불가능했습니다. 같은 일을 하기엔 우선 다른 Action을 dispatch시켜, 확인 다이럴로그에 Yes가 나오면 원래의 Action을 dispatch하는 식의 변경이 필요했습니다. 이러면 본말전도가 되므로 그냥 Middleware를 쓰는 게 좋은 패턴입니다. 덧붙여 이 제약은 [Redux Middleware in Depth](http://qiita.com/kuy/items/c6784fe443f1d5c7bbdc)라는 포스팅에도 해설한 Middleware를 실행하는 타이밍때문에 일어나는 것입니다. redux-saga의 경우, 항상 Reducer의 처리가 끝난 다음에 Saga가 실행되므로, 지금 상태로는 어떻게 할 수 없기 때문입니다. 수요가 있을지는 모르겠지만 redux-saga에 issue를 세워볼까 생각하고 있습니다.
+redux-saga의 사용법을 다양한 각도에서 봤습니다. 뭐든 할 수 있을 것 같지만, redux-saga에도 제약이 있습니다. 모든 Middleware의 처리를 이식하는건 불가능 합니다. 예를들어 Middleware처럼 Action을 솎아 내는 건 못합니다. 그래서 이번 샘플은 [Redux의 middleware를 적극적으로 써보자](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e)에서 소개한 [Action을 Dispatch하기 전에 브라우저 확인 다이얼로그를 표시하자](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e#action%E3%82%92dispatch%E3%81%99%E3%82%8B%E5%89%8D%E3%81%AB%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%83%80%E3%82%A4%E3%82%A2%E3%83%AD%E3%82%B0%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B)를 그대로 이식하는건 불가능했습니다. 같은 일을 하기엔 우선 다른 Action을 dispatch시켜, 확인 다이럴로그에 Yes가 나오면 원래의 Action을 dispatch하는 식의 변경이 필요했습니다. 이러면 본말전도가 되므로 그냥 Middleware를 쓰는 게 좋은 경우입니다. 덧붙여 이러한 제약은 [Redux Middleware in Depth](http://qiita.com/kuy/items/c6784fe443f1d5c7bbdc)라는 포스팅에도 해설한 Middleware를 실행하는 타이밍 때문에 일어나는 것입니다. redux-saga의 경우, 항상 Reducer의 처리가 끝난 다음에 Saga가 실행되므로, 지금 상태로는 어떻게 할 수 없기 때문입니다. 수요가 있을지는 모르겠지만 redux-saga에 issue를 세워볼까 생각하고 있습니다.
 
 <!--redux-sagaの使い方をいろいろな角度から見てきました。なんでもできそうに思えますが、redux-sagaにも制約はあります。すべてのMiddlewareの処理をそのまま移植できるわけではありません。例えばMiddlewareのようにActionを間引くことはできません。なので今回のサンプルには[Reduxのmiddlewareを積極的に使っていく](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e)で紹介した[ActionをDispatchする前にブラウザの確認ダイアログを表示する](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e#action%E3%82%92dispatch%E3%81%99%E3%82%8B%E5%89%8D%E3%81%AB%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%83%80%E3%82%A4%E3%82%A2%E3%83%AD%E3%82%B0%E3%82%92%E8%A1%A8%E7%A4%BA%E3%81%99%E3%82%8B)をそのまま移植できませんでした。同じことをやるにはまずは別のActionをdispatchしてもらって、確認ダイアログでYesだったら本物のActionをdispatchするという感じに変更が必要になってしまいます。これだと本末転倒なので素直にMiddlewareを使った方がいいパターンです。ちなみにこの制約は[Redux Middleware in Depth](http://qiita.com/kuy/items/c6784fe443f1d5c7bbdc)という記事で解説したMiddlewareを実行するタイミングに起因するものです。redux-sagaの場合、常にReducerの処理が終わった後にSagaが実行されるため、現状ではどうやっても不可能というわけです。需要があるのかわかりませんが、redux-sagaにissueを立ててみようかなと思っています。-->
 
