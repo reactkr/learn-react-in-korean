@@ -783,6 +783,11 @@ redux-saga에는 [풍부한 예제](https://github.com/yelouafi/redux-saga/tree/
 
 <!--redux-sagaには[豊富なサンプル](https://github.com/yelouafi/redux-saga/tree/master/examples)が用意されています。なにか困ったらヒントがないか見てみるといいです。・・・が、これで終わらせてしまうのはあんまりなので別の利用例を紹介します。特に先日リリースされた [0.10.0](https://github.com/yelouafi/redux-saga/releases/tag/v0.10.0) の新機能である [eventChannel](http://yelouafi.github.io/redux-saga/docs/api/index.html#eventchannelsubscribe-buffer-matcher) を使ったサンプルはあまり出回ってないので参考になるかもしれません。-->
 
+> 역자주: 여기서 소개되는 실전 예제들의 소스 코드와 데모들은 밑의 링크에서 찾으실 수 있습니다. 이 포스팅에 설명되지 않은 예제도 있으니 이쪽도 훑어 봐주시면 더욱 좋을 듯합니다.
+>
+> 소스 코드 : https://github.com/kuy/redux-saga-examples
+> 데모 : http://kuy.github.io/redux-saga-examples/
+
 ### 자동 완성
 
 <!--### オートコンプリート-->
