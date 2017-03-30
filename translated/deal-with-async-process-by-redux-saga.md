@@ -12,7 +12,7 @@
 
 <!--## はじめに-->
 
-Redux는 단일 Store, 불변적인 State, Side effect가 없는 Reducer의 3가지 원칙을 내세운 Flux 프레임워크입니다. 하지만 다른 프레임워크와는 달리 제공하는 것은 최소한으로,Fullstack이라고는 말하기 힘들만큼 얇습니다. 그때문에 모든 면에 있어서 일반적이라고 할만한 사용법이 정리되지 않아서, 어떻게 사용해야할지 방황하는 경우도 적지 않습니다. 그 필두로 말할 수 있는게 **비동기처리**입니다. 커뮤니티는 지금도 여러 방법을 모색하고 있고, 주로 쓰여지는건 [redux-thunk](https://github.com/gaearon/redux-thunk)와 [redux-promise](https://github.com/acdlite/redux-promise)정도 일겁니다. Redux로 한정하지 않는다면 [react-side-effect](https://github.com/gaearon/react-side-effect)도 있습니다. 이건 [Twitter의 모바일 버젼](https://mobile.twitter.com)에 사용되고 있습니다. 어떤걸 써도 비동기처리가 가능하게 되지만, 그것들은 어디까지나 도구로써, 설계의 지침까지는 알려주지 않습니다. **문제는 비동기처리를 어디에 쓸 것 인가, 어떻게 쓸 것 인가, 그리고 어디서 불러와야 하는가 입니다.** Redux를 사용하고있으면 다음과 같은 상황이 고민하고 있지는 않으신가요?
+Redux는 단일 Store, 불변적인 State, Side effect가 없는 Reducer의 3가지 원칙을 내세운 Flux 프레임워크입니다. 하지만 다른 프레임워크와는 달리 제공하는 것은 최소한으로, Fullstack이라고는 말하기 힘들 만큼 얇습니다. 그 때문에 모든 면에 있어서 일반적이라고 할만한 사용법이 정리되지 않아서, 어떻게 사용해야할지 방황하는 경우도 적지 않습니다. 그 필두로 말할 수 있는게 **비동기처리**입니다. 커뮤니티는 지금도 여러 방법을 모색하고 있고, 주로 쓰여지는건 [redux-thunk](https://github.com/gaearon/redux-thunk)와 [redux-promise](https://github.com/acdlite/redux-promise)정도 일겁니다. Redux로 한정하지 않는다면 [react-side-effect](https://github.com/gaearon/react-side-effect)도 있습니다. 이건 [Twitter의 모바일 버젼](https://mobile.twitter.com)에 사용되고 있습니다. 어떤 걸 써도 비동기처리가 가능하게 되지만, 그것들은 어디까지나 도구로써, 설계의 지침까지는 알려주지 않습니다. **문제는 비동기처리를 어디에 쓸 것 인가, 어떻게 쓸 것 인가, 그리고 어디서 불러와야 하는가 입니다.** Redux를 사용하고있으면 다음과 같은 상황이 고민하고 있지는 않으신가요?
 
 <!--ReduxはSingle Store、immutableなState、副作用のないReducerという３つの原則を掲げたFluxフレームワークです。しかし他のフレームワークと違って提供しているものは最小限で、とてもフルスタックとは言えない薄さです。そのためすべてにおいて定番と言える書き方が定まっているわけでもなく、どうしようか迷ってしまうことも少なくありません。その筆頭とも言えるのが **非同期処理** の扱いです。コミュニティでは今でもさまざまな方向に模索が続いていますが、よく使われているものだと[redux-thunk](https://github.com/gaearon/redux-thunk)、[redux-promise](https://github.com/acdlite/redux-promise)あたりでしょうか。Reduxに限定しないのであれば[react-side-effect](https://github.com/gaearon/react-side-effect)というものもあります。こちらは[Twitterのモバイルウェブ版](https://mobile.twitter.com)で使われていますね。どれを使っても非同期処理が可能になりますが、それはあくまで道具であって、設計の指針までは示してくれません。 **問題は非同期処理をどこに書くのか、どのように書くのか、そしてどこから呼び出すべきか、です。** Reduxを使っていると次のような状況に悩んだことはないでしょうか。-->
 
@@ -28,7 +28,7 @@ Redux는 단일 Store, 불변적인 State, Side effect가 없는 Reducer의 3가
 -   頻繁に発生するActionをバッファしてまとめてdispatchしたい
 -   他のフレームワーク、ライブラリとうまく連携したい-->
 
-React + Redux의 아름다운 세계에서 움츠러드는 그 코드들을 어떻게 해야할것인가. 어떻게 싸워야 할것인가. 이 글에는 한가지의 해결방법으로써 [redux-saga](https://github.com/yelouafi/redux-saga)를 소개합니다. redux-saga의 개요와 기본적인 개념에대해 가볍게 설명하고, 익숙한 redux-thunk로 만들어진 코드와 비교해보겠습니다. 조금만 초보적인 셋업방법과 실수하기 쉬운 부분을 설명하고, 후반은 실전적인 redux-saga의 사용법을 소개합니다.
+React + Redux의 아름다운 세계에서 움츠러드는 그 코드들을 어떻게 해야 할 것인가. 어떻게 싸워야 할 것인가. 이 글에는 한가지의 해결방법으로써 [redux-saga](https://github.com/yelouafi/redux-saga)를 소개합니다. redux-saga의 개요와 기본적인 개념에대해 가볍게 설명하고, 익숙한 redux-thunk로 만들어진 코드와 비교해보겠습니다. 조금만 초보적인 셋업방법과 실수하기 쉬운 부분을 설명하고, 후반은 실전적인 redux-saga의 사용법을 소개합니다.
 
 <!--React + Reduxのキレイな世界で肩身の狭い思いをするそれらのコードをどうするべきか。どうやって戦っていけばいいのか。本稿では１つの解決方法として[redux-saga](https://github.com/yelouafi/redux-saga)を紹介します。redux-sagaの概要と基本的な考え方についてじっくり説明し、お馴染みのredux-thunkで実装したときとコードを比較してみます。ちょっとだけ入門的なセットアップ方法やハマリポイントについて述べて、後半は実践的なredux-sagaの使い方を紹介します。-->
 
@@ -72,7 +72,7 @@ React + Redux의 아름다운 세계에서 움츠러드는 그 코드들을 어�
 
 <!--これらの処理の中にはタスク内で直接実行できるものもありますが、redux-sagaに依頼することで間接的に実行します。それによって **非同期処理を[co](https://github.com/tj/co)のように同期的に書けるようにしつつ、複数のタスクを同時並行に実行する** ことができます。次の図はredux-saga上で実行されるタスクのイメージです。-->
 
-![redux-saga.png](https://qiita-image-store.s3.amazonaws.com/0/69860/8cc1a873-c675-9009-570d-9684da4a704f.png)
+![redux-saga.png](./assets/deal-with-async-process-by-redux-saga/redux-saga-diagram.png)
 
 ### 무엇이 좋아지나?
 
@@ -769,7 +769,7 @@ export default function configureStore(initialState) {
 
 <!--モニターの実装はとりあえず[redux-sagaのexamples/sagaMonitor](https://github.com/yelouafi/redux-saga/blob/master/examples%2FsagaMonitor%2Findex.js)を使ってみてください。尚、このモニターはデフォルトでは何も表示しないので、コード中の `VERBOSE` という変数を `true` にすると騒がしくなります。ただ、`redux-logger` のように常にログが垂れ流されるという使い方ではなくて、必要なときにブラウザの開発者ツールから `window.$$LogSagas` 関数を呼び出してタスクツリーを眺めるのがメインです。実行してみたときの様子は以下です。が、あまりかっこよくないので[D3.js](https://d3js.org/)で可視化するツールを作るつもりです。-->
 
-![saga-monitor.png](https://qiita-image-store.s3.amazonaws.com/0/69860/82c1116f-50b1-8ab1-dc5c-8a1ba9792275.png "saga-monitor.png")
+![saga-monitor.png](./assets/deal-with-async-process-by-redux-saga/saga-monitor.png "saga-monitor.png")
 
 이 다음의 [API 요청시의 스로틀링](http://qiita.com/kuy/items/716affc808ebb3e1e8ac#api%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%81%AE%E3%82%B9%E3%83%AD%E3%83%83%E3%83%88%E3%83%AA%E3%83%B3%E3%82%B0)에서 소개하는 예제에는 모니터가 포함되어 있으므로 [데모](http://kuy.github.io/redux-saga-examples/throttle.html)로 시험해 보실 수 있습니다.
 
@@ -909,11 +909,11 @@ export default function* rootSaga() {
 
 <!--バグも取れて、これで改善の準備が整いました。どういう動作が望ましいのか整理するためにシナリオを書いてみます。-->
 
-1.  1글자를 입력한다
-2.  바로 리퀘스트를 날리지는 않는다.
-3.  더 몇문자가 입력된다.
+1.  1글자를 입력한다.
+2.  바로 리퀘스트를 날리지 않는다.
+3.  몇 글자 더 입력한다.
 4.  아직 리퀘스트를 보내지 않는다.
-5.  아직 입력이 없는 상태가 일정시간 지속되면 리퀘스트를 보낸다.
+5.  아무것도 입력이 없는 상태가 일정시간 지속되면 리퀘스트를 보낸다.
 
 <!--1.  1文字入力する
 2.  すぐにリクエストは投げられない
@@ -963,7 +963,7 @@ export default function* rootSaga() {
 }
 ```
 
-주목할 포인트는 2개입니다. 1번째 포인트는 넘겨진 Task를 지연처리하는 `forkLater`함수는 `fork` Effect를 돌려주는 함수입니다. `call` Effect로 `delay` 함수를 불러와 일정시간을 기다리고, `delay` 함수가 돌려주는 Promise가 resolve되면 제어가 돌아와서 Task를 `fork`합니다. 참고로 `delay`함수는 `redux-saga` 모듈로부터 읽어들입니다. 2번째 포인트는 `handleRequestSuggest` Task에 실행중의 지연실행 Task가 있는 경우, 그것을 취소하고나서 기동시키는 부분입니다. `fork` Effect를 `yield` 했을 때 리턴 값은 [Task 인터페이스](http://yelouafi.github.io/redux-saga/docs/api/index.html#task)를 가지는 오브젝트로 기동된 Task의 상태를 가져오거나 취소하는 등, 이것저것 할 수 있습니다.
+주목할 포인트는 2개입니다. 1번째 포인트는 넘겨진 Task를 지연처리하는 `forkLater`함수는 `fork` Effect를 돌려주는 함수입니다. `call` Effect로 `delay` 함수를 불러와 일정시간을 기다리고, `delay` 함수가 돌려주는 Promise가 resolve되면 제어가 돌아와서 Task를 `fork`합니다. 참고로 `delay`함수는 `redux-saga` 모듈로부터 읽어들입니다. 2번째 포인트는 `handleRequestSuggest` Task에 실행 의 지연실행 Task가 있는 경우, 그것을 취소하고나서 기동시키는 부분입니다. `fork` Effect를 `yield` 했을 때 리턴 값은 [Task 인터페이스](http://yelouafi.github.io/redux-saga/docs/api/index.html#task)를 가지는 오브젝트로 기동된 Task의 상태를 가져오거나 취소하는 등, 이것저것 할 수 있습니다.
 
 <!--ポイントは2つあります。１つ目のポイントは渡されたタスクを遅延実行する `forkLater` 関数は `fork` 作用を返す関数です。`call` 作用で `delay` 関数を呼び出して一定時間待ち、`delay` 関数が返すPromiseがresolveされたら制御が戻ってくるのでタスクを `fork` します。ちなみに `delay` 関数は `redux-saga` モジュールからの読み込みです。２つ目のポイントは `handleRequestSuggest` タスクで実行中の遅延実行タスクがあった場合はそれをキャンセルしてから起動する部分です。`fork` 作用を `yield` したときの戻り値は [Taskインターフェイス](http://yelouafi.github.io/redux-saga/docs/api/index.html#task)を実装したオブジェクトで、起動したタスクの状態を取得したりキャンセルしたり、いろいろできます。-->
 
