@@ -13,6 +13,11 @@
 -   [React & Express 를 이용한 웹 어플리케이션 개발하기](https://www.inflearn.com/course/react-%EA%B0%95%EC%A2%8C-velopert/)
 -   [\[번역\] 상세한 리액트 Higher Order Components 설명(React Higher Order Components in depth)](https://www.vobour.com/book/view/XSSFQ5wBzsCLAbbo4)
 
+## React Native
+
+- [React Native 안드로이드 성능 최적화](https://taegon.kim/archives/5950)
+- [\[번역\] 인스타그램이 React Native로 앱을 만든 과정](https://taegon.kim/archives/5745)
+
 ## Redux
 
 -   [\[번역\] Redux 한글 문서](http://dobbit.github.io/redux/index.html)
