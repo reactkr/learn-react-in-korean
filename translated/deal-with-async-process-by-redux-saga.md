@@ -90,7 +90,7 @@ Flux나 Redux만으로도 난해했던것이 더욱 새로운 개념을 가져�
 -   小さなコードにどんどん分割できる
 -   再利用可能になる-->
 
-이것은 단순한 "재이용가능"이라는 단어 이상의 의미가 있습니다. 무슨 말이냐면 재이용가능한 Container Component를 개발하는데 있어 필수적인 요소입니다. Middleware라는 정말 이해하기 힘들지만 신경쓸 수 밖에 없는 것이 산더미처럼 있고, 더욱이 재이용가능한 컴포넌트로써 도입할떄도, 어디에 Middleware를 넣어줄 것인가를 생각하지않으면 안됩니다. 반면, saga라면 원칙적으로 서로 독립적을 동작하기 때문에 자신의 세계에서만 코드를 쓰는게 가능하여, 다른 saga에 영향을 끼치지 않습니다.
+이것은 단순한 "재이용가능"이라는 단어 이상의 의미가 있습니다. 무슨 말이냐면 재이용가능한 Container Component를 개발하는데 있어 필수적인 요소입니다. Middleware라는 정말 이해하기 힘들지만 신경쓸 수 밖에 없는 것이 산더미처럼 있고, 더욱이 재이용가능한 컴포넌트로써 도입할 때도, 어디에 Middleware를 넣어줄 것인가를 생각하지않으면 안됩니다. 반면, saga라면 원칙적으로 서로 독립적을 동작하기 때문에 자신의 세계에서만 코드를 쓰는게 가능하여, 다른 saga에 영향을 끼치지 않습니다.
 
 <!--これは単純な「再利用可能」という言葉以上の意味があります。どういうことかというと再利用可能なContainerコンポーネントを開発する上で不可欠な要素だからです。Middlewareというのは本当にやっかいで気にしなければならないことが山ほどあって、さらに再利用可能なコンポーネントとして導入する際にも、どの位置にMiddlewareを組み込むか考えないといけません。一方でSagaであれば原則的にお互いに独立して動作するので自分の関心のある世界だけでコードを書くことができて、他のSagaに影響を与えることがありません。-->
 
@@ -765,7 +765,7 @@ export default function configureStore(initialState) {
   const store = createStore(...
 ```
 
-모니터의 적용은 일단 [redux-saga의 examples/sagaMonitor](https://github.com/yelouafi/redux-saga/blob/master/examples%2FsagaMonitor%2Findex.js)를 써봐주세요. 그리고, 이 모니터는 디폴트로 아무것도 표시하지 않으므로, 코드중의 `VERBOSE`라는 변소를 `true`로 바꾸셔야 떠들기 시작합니다. 단, `redux-logger`와 같이 로그가 계속해서 흘러가는 걸 보는게 아니라, 필요할 떄 브라우저툴로부터 `window.$$LogSagas` 함수를 불러서 Task tree를 지켜보는게 주 목적 입니다. 실행해보면 다음과 같이 나타납니다. 하지만, 그다지 멋있어 보이진 않으므로 [D3.js](https://d3js.org/)로 시각화 툴을 만들어 볼 생각입니다.
+모니터의 적용은 일단 [redux-saga의 examples/sagaMonitor](https://github.com/yelouafi/redux-saga/blob/master/examples%2FsagaMonitor%2Findex.js)를 써봐주세요. 그리고, 이 모니터는 디폴트로 아무것도 표시하지 않으므로, 코드중의 `VERBOSE`라는 변수를 `true`로 바꾸셔야 떠들기 시작합니다. 단, `redux-logger`와 같이 로그가 계속해서 흘러가는 걸 보는게 아니라, 필요할 때 브라우저툴로부터 `window.$$LogSagas` 함수를 불러서 Task tree를 지켜보는게 주 목적 입니다. 실행해보면 다음과 같이 나타납니다. 하지만, 그다지 멋있어 보이진 않으므로 [D3.js](https://d3js.org/)로 시각화 툴을 만들어 볼 생각입니다.
 
 <!--モニターの実装はとりあえず[redux-sagaのexamples/sagaMonitor](https://github.com/yelouafi/redux-saga/blob/master/examples%2FsagaMonitor%2Findex.js)を使ってみてください。尚、このモニターはデフォルトでは何も表示しないので、コード中の `VERBOSE` という変数を `true` にすると騒がしくなります。ただ、`redux-logger` のように常にログが垂れ流されるという使い方ではなくて、必要なときにブラウザの開発者ツールから `window.$$LogSagas` 関数を呼び出してタスクツリーを眺めるのがメインです。実行してみたときの様子は以下です。が、あまりかっこよくないので[D3.js](https://d3js.org/)で可視化するツールを作るつもりです。-->
 
