@@ -11,7 +11,7 @@
 -   [(React Hot Loader) v3로 마이그레이션 해보자!](https://perfectacle.github.io/2017/03/25/react-hot-loader-3/)
 -   [\[번역\] 리액트하다가 막혔을 때 생각해볼 4가지 질문](https://velopert.com/3260)
 -   [React & Express 를 이용한 웹 어플리케이션 개발하기](https://www.inflearn.com/course/react-%EA%B0%95%EC%A2%8C-velopert/)
--   [\[번역\]상세한 리액트 Higher Order Components 설명(React Higher Order Components in depth)](https://www.vobour.com/book/view/XSSFQ5wBzsCLAbbo4)
+-   [\[번역\] 상세한 리액트 Higher Order Components 설명(React Higher Order Components in depth)](https://www.vobour.com/book/view/XSSFQ5wBzsCLAbbo4)
 
 ## Redux
 
