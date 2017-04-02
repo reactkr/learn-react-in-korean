@@ -104,12 +104,12 @@
 ## Misc
 
 -   [rest에서 graph ql과 relay로 갈아타기](https://www.slideshare.net/deview/112rest-graph-ql-relay)
--   [\[번역\]Thinking in GraphQL](http://blog.sapzil.org/2015/10/07/thinking-in-graphql/)
--   [\[번역\]Hype Driven Development - 설레발 주도 개발](https://lazygyu.net/blog/hype_driven_development)
+-   [\[번역\] Thinking in GraphQL](http://blog.sapzil.org/2015/10/07/thinking-in-graphql/)
+-   [\[번역\] Hype Driven Development - 설레발 주도 개발](https://lazygyu.net/blog/hype_driven_development)
 -   [개발자가 가져야 할 균형 감각에 대한 단상](http://huns.me/development/1775)
 -   [리액트 딜레마](http://huns.me/development/2011)
--   [\[번역\]페이스북의 결정: MVC는 확장에 용이하지 않다. 그렇다면 Flux다.](http://blog.coderifleman.com/2015/06/19/mvc-does-not-scale-use-flux-instead/)
--   [\[번역\]ReactJS 는 정말 빠를까?](http://yourakmoon.blogspot.kr/2015/06/is-reactjs-really-fast-15-06-01.html)
+-   [\[번역\] 페이스북의 결정: MVC는 확장에 용이하지 않다. 그렇다면 Flux다.](http://blog.coderifleman.com/2015/06/19/mvc-does-not-scale-use-flux-instead/)
+-   [\[번역\] ReactJS 는 정말 빠를까?](http://yourakmoon.blogspot.kr/2015/06/is-reactjs-really-fast-15-06-01.html)
 
 ## 번역 요청
 
