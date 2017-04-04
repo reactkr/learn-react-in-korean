@@ -4,6 +4,7 @@
 
 ## React
 
+-   [React 적용 가이드 - 네이버 메일 모바일 웹 적용기](http://d2.naver.com/helloworld/4966453)
 -   [안녕, 리액트(Hello, React)](http://blog.gaerae.com/2016/04/hello-react.html)
 -   [React의 기본, 컴포넌트를 알아보자](https://medium.com/little-big-programming/react의-기본-컴포넌트를-알아보자-92c923011818#.uemkhn2ym)
 -   [ReactJS: Props와 State 비교](https://wonhada.com/?topic=reactjs-props와-state-비교)
@@ -82,6 +83,7 @@
 
 ## Redux
 
+-   [리안 개발 일기 #1: Front-End 개발(React)](https://medium.com/@RianCommunity/리안-개발-일기-2-front-end-개발-react-9f6ccb5b016d)
 -   [역시 Redux](https://www.slideshare.net/dalinaum/redux-55650128)
 -   [React 적용 가이드 - React와 Redux](http://d2.naver.com/helloworld/1848131)
 -   [리덕스(Redux) 애플리케이션 설계에 대한 생각](http://huns.me/development/1953)
