@@ -84,7 +84,6 @@
 ## Redux
 
 -   [리안 개발 일기 #1: Front-End 개발(React)](https://medium.com/@RianCommunity/리안-개발-일기-2-front-end-개발-react-9f6ccb5b016d)
--   [당신에게 Redux는 필요 없을지도 모릅니다.\[번역\]](https://medium.com/@Dev_Bono/당신에게-redux는-필요-없을지도-모릅니다-b88dcd175754)
 -   [역시 Redux](https://www.slideshare.net/dalinaum/redux-55650128)
 -   [React 적용 가이드 - React와 Redux](http://d2.naver.com/helloworld/1848131)
 -   [리덕스(Redux) 애플리케이션 설계에 대한 생각](http://huns.me/development/1953)
@@ -97,6 +96,7 @@
 -   [리덕스에 대한 이해 \[번역\]](http://webframeworks.kr/tutorials/translate/understanding-redux/)
 -   [snippod-starter-demo-app–Full Stack Architecture : React & Flux + Django REST Framework](http://www.shalomeir.com/2016/07/snippod-starter-demo-app-full-stack-react-redux-django/)
 -   [Building Tesla's battery range calculator with React Part 2 (Redux version) \[번역\]](https://gyver98.github.io/blog/development/react/redux/2017/03/17/react-tesla-battery-range-calculator-part2-korean/)
+-   [당신에게 Redux는 필요 없을지도 모릅니다.\[번역\]](https://medium.com/@Dev_Bono/당신에게-redux는-필요-없을지도-모릅니다-b88dcd175754)
 
 ## Webpack
 
@@ -123,6 +123,10 @@
 ## 메인테이너
 
 [Junyoung Choi (Rokt33r)](https://github.com/rokt33r)
+
+## Special Thanks
+
+[Eclatant](https://github.com/Eclatant)
 
 ## License
 
