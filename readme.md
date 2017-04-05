@@ -96,6 +96,7 @@
 -   [\[번역\] 리덕스에 대한 이해](http://webframeworks.kr/tutorials/translate/understanding-redux/)
 -   [snippod-starter-demo-app–Full Stack Architecture : React & Flux + Django REST Framework](http://www.shalomeir.com/2016/07/snippod-starter-demo-app-full-stack-react-redux-django/)
 -   [\[번역\] Building Tesla's battery range calculator with React Part 2 (Redux version)](https://gyver98.github.io/blog/development/react/redux/2017/03/17/react-tesla-battery-range-calculator-part2-korean/)
+-   [\[번역\] 당신에게 Redux는 필요 없을지도 모릅니다.](https://medium.com/@Dev_Bono/%EB%8B%B9%EC%8B%A0%EC%97%90%EA%B2%8C-redux%EB%8A%94-%ED%95%84%EC%9A%94-%EC%97%86%EC%9D%84%EC%A7%80%EB%8F%84-%EB%AA%A8%EB%A6%85%EB%8B%88%EB%8B%A4-b88dcd175754)
 
 ## Webpack
 
