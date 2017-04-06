@@ -68,6 +68,18 @@
 -   [React.js가 IE 브라우저 지원 중단했다면서요?](https://medium.com/little-big-programming/react-js가-ie-브라우저-지원-중단했다면서요-a9734bc323cb#.ym56hg9ek)
 -   [\[번역\]\[React Router\] 시리즈](http://yubylab.tistory.com/entry/React-Router-Lesson01-settingup)
 -   [React 렌더링과 성능 알아보기](https://github.com/nhnent/fe.javascript/wiki/March-20---March-24,-2017-(2))
+-   [React 적용 가이드 - React 작동 방법](http://d2.naver.com/helloworld/9297403)
+-   [create-react-app에 관하여 -1](https://techstory.shma.so/create-react-app에-관하여-1-935a21297550)
+-   [react everywhere](https://www.slideshare.net/deview/141-react-everywhere)
+-   [React 소개 및 구현방법 Demo](https://www.slideshare.net/zonekom/react-demo)
+-   [React 튜토리얼 1차시](https://www.slideshare.net/ssuser555dd7/react-1)
+-   [React 튜토리얼 2차시](https://www.slideshare.net/ssuser555dd7/react-2)
+-   [React, Redux and es6/7](https://www.slideshare.net/looklazy/react-redux-and-es67)
+-   [React로 개발하는 SPA 실무 이야기](https://www.slideshare.net/xpressengine/xecon2015-22-react-spa)
+-   [React.js 실서비스 적용기](http://slides.com/roto/react-js-live-service#/)
+-   [React Redux React Native](https://www.slideshare.net/dalinaum/react-redux-react-native)
+-   [Immutable한 양방향 데이터 바인딩](https://www.slideshare.net/xpressengine/xecon2016-a1-react-immutable)
+-   [react로 개발자 2명이 플랫폼 4개를 서비스하는 이야기](https://www.slideshare.net/deview/125react24)
 
 ## React Native
 
@@ -81,6 +93,7 @@
 -   [리액트 네이티브로 시작하는 앱 개발 #1](https://realm.io/kr/news/react-native/)
 -   [리액트 네이티브로 시작하는 앱 개발 #2](https://realm.io/kr/news/react-native2/)
 -   [리액트 네이티브로 시작하는 앱 개발 #3](https://realm.io/kr/news/react-native3/)
+-   [MobX with React Native — Intro](https://engineering.huiseoul.com/mobx-with-react-native-intro-605dc3a7fe94)
 
 ## Redux
 
@@ -97,7 +110,8 @@
 -   [\[번역\] 리덕스에 대한 이해](http://webframeworks.kr/tutorials/translate/understanding-redux/)
 -   [snippod-starter-demo-app–Full Stack Architecture : React & Flux + Django REST Framework](http://www.shalomeir.com/2016/07/snippod-starter-demo-app-full-stack-react-redux-django/)
 -   [\[번역\] Building Tesla's battery range calculator with React Part 2 (Redux version)](https://gyver98.github.io/blog/development/react/redux/2017/03/17/react-tesla-battery-range-calculator-part2-korean/)
--   [\[번역\] 당신에게 Redux는 필요 없을지도 모릅니다.](https://medium.com/@Dev_Bono/%EB%8B%B9%EC%8B%A0%EC%97%90%EA%B2%8C-redux%EB%8A%94-%ED%95%84%EC%9A%94-%EC%97%86%EC%9D%84%EC%A7%80%EB%8F%84-%EB%AA%A8%EB%A6%85%EB%8B%88%EB%8B%A4-b88dcd175754)
+-   [\[번역\] 당신에게 Redux는 필요 없을지도 모릅니다.](https://medium.com/@Dev_Bono/당신에게-redux는-필요-없을지도-모릅니다-b88dcd175754)
+-   [State management — Redux vs. MobX](https://engineering.huiseoul.com/state-management-redux-vs-mobx-a8853a7c80ea)
 
 ## Webpack
 
@@ -114,6 +128,7 @@
 -   [리액트 딜레마](http://huns.me/development/2011)
 -   [\[번역\] 페이스북의 결정: MVC는 확장에 용이하지 않다. 그렇다면 Flux다.](http://blog.coderifleman.com/2015/06/19/mvc-does-not-scale-use-flux-instead/)
 -   [\[번역\] ReactJS 는 정말 빠를까?](http://yourakmoon.blogspot.kr/2015/06/is-reactjs-really-fast-15-06-01.html)
+-   [JavaScript in 2017: 옛날 사람 탈출하기](http://meshlabs.ghost.io/javascript-in-2017/)
 
 ## 번역 요청
 
