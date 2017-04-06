@@ -69,6 +69,15 @@
 -   [\[번역\]\[React Router\] 시리즈](http://yubylab.tistory.com/entry/React-Router-Lesson01-settingup)
 -   [React 렌더링과 성능 알아보기](https://github.com/nhnent/fe.javascript/wiki/March-20---March-24,-2017-(2))
 -   [React 적용 가이드 - React 작동 방법](http://d2.naver.com/helloworld/9297403)
+-   [create-react-app에 관하여 -1](https://techstory.shma.so/create-react-app에-관하여-1-935a21297550)
+-   [react everywhere](https://www.slideshare.net/deview/141-react-everywhere)
+-   [React 소개 및 구현방법 Demo](https://www.slideshare.net/zonekom/react-demo)
+-   [React 튜토리얼 1차시](https://www.slideshare.net/ssuser555dd7/react-1)
+-   [React 튜토리얼 2차시](https://www.slideshare.net/ssuser555dd7/react-2)
+-   [React, Redux and es6/7](https://www.slideshare.net/looklazy/react-redux-and-es67)
+-   [React로 개발하는 SPA 실무 이야기](https://www.slideshare.net/xpressengine/xecon2015-22-react-spa)
+-   [React.js 실서비스 적용기](http://slides.com/roto/react-js-live-service#/)
+-   [React Redux React Native](https://www.slideshare.net/dalinaum/react-redux-react-native)
 
 ## React Native
 
