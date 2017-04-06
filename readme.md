@@ -78,6 +78,8 @@
 -   [React로 개발하는 SPA 실무 이야기](https://www.slideshare.net/xpressengine/xecon2015-22-react-spa)
 -   [React.js 실서비스 적용기](http://slides.com/roto/react-js-live-service#/)
 -   [React Redux React Native](https://www.slideshare.net/dalinaum/react-redux-react-native)
+-   [Immutable한 양방향 데이터 바인딩](https://www.slideshare.net/xpressengine/xecon2016-a1-react-immutable)
+-   [react로 개발자 2명이 플랫폼 4개를 서비스하는 이야기](https://www.slideshare.net/deview/125react24)
 
 ## React Native
 
