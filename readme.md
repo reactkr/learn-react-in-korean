@@ -117,6 +117,7 @@
 -   [리액트 딜레마](http://huns.me/development/2011)
 -   [\[번역\] 페이스북의 결정: MVC는 확장에 용이하지 않다. 그렇다면 Flux다.](http://blog.coderifleman.com/2015/06/19/mvc-does-not-scale-use-flux-instead/)
 -   [\[번역\] ReactJS 는 정말 빠를까?](http://yourakmoon.blogspot.kr/2015/06/is-reactjs-really-fast-15-06-01.html)
+-   [JavaScript in 2017: 옛날 사람 탈출하기](http://meshlabs.ghost.io/javascript-in-2017/)
 
 ## 번역 요청
 
