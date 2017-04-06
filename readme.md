@@ -67,6 +67,7 @@
 -   [React Study v2 #00](https://blog.weirdx.io/post/38247)
 -   [React.js가 IE 브라우저 지원 중단했다면서요?](https://medium.com/little-big-programming/react-js가-ie-브라우저-지원-중단했다면서요-a9734bc323cb#.ym56hg9ek)
 -   [\[번역\]\[React Router\] 시리즈](http://yubylab.tistory.com/entry/React-Router-Lesson01-settingup)
+-   [React 렌더링과 성능 알아보기](https://github.com/nhnent/fe.javascript/wiki/March-20---March-24,-2017-(2))
 
 ## React Native
 
