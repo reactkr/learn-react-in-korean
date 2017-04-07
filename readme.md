@@ -18,7 +18,7 @@
 
 ### React
 
--   [React 적용 가이드 - 네이버 메일 모바일 웹 적용기](http://d2.naver.com/helloworld/4966453) 2017/04
+-   [React 적용 가이드 - 네이버 메일 모바일 웹 적용기](http://d2.naver.com/helloworld/4966453) <!--2017/04-->
 -   [리안 개발 일기 #1: Front-End 개발(React)](https://medium.com/@RianCommunity/리안-개발-일기-2-front-end-개발-react-9f6ccb5b016d) <!--2017/02-->
 -   [React의 기본, 컴포넌트를 알아보자](https://medium.com/little-big-programming/react의-기본-컴포넌트를-알아보자-92c923011818#.uemkhn2ym) <!--2017/01-->
 -   [React 앱의 최적화 전략](http://webframeworks.kr/tutorials/react/react-optimization/) <!--2016-->
@@ -120,8 +120,8 @@
 
 다음과 같은 조건이면 바로 PR을 보내주셔도 됩니다. 그리고 작성 년월도 PR에 커멘트로 알려주세요.
 
-- 완전히 번역된 글
-- 2017년 이후 글들
+-   완전히 번역된 글
+-   2017년 이후 글들
 
 이 조건에 해당하지 않는 경우 이슈를 열어주세요! 검토해보도록 하겠습니다.
 
