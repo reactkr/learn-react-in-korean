@@ -18,6 +18,7 @@
 
 ### React
 
+-   [React 적용 가이드 - 네이버 메일 모바일 웹 적용기](http://d2.naver.com/helloworld/4966453) 2017/04
 -   [리안 개발 일기 #1: Front-End 개발(React)](https://medium.com/@RianCommunity/리안-개발-일기-2-front-end-개발-react-9f6ccb5b016d) <!--2017/02-->
 -   [React의 기본, 컴포넌트를 알아보자](https://medium.com/little-big-programming/react의-기본-컴포넌트를-알아보자-92c923011818#.uemkhn2ym) <!--2017/01-->
 -   [React 앱의 최적화 전략](http://webframeworks.kr/tutorials/react/react-optimization/) <!--2016-->
@@ -37,7 +38,6 @@
 
 ### React
 
--   [React 적용 가이드 - 네이버 메일 모바일 웹 적용기](http://d2.naver.com/helloworld/4966453) 2017/04
 -   [\[번역\] 리액트하다가 막혔을 때 생각해볼 4가지 질문](https://velopert.com/3260) 2017/03
 -   [\[번역\] 리액트에 대해서 그 누구도 제대로 설명하기 어려운 것 – 왜 Virtual DOM 인가?](https://velopert.com/3236) 2017/03
 -   [ReactJS: Props와 State 비교](https://wonhada.com/?topic=reactjs-props와-state-비교) 2017/03
