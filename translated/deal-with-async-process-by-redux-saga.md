@@ -140,8 +140,8 @@ Flux나 Redux만으로도 난해했던것이 더욱 새로운 개념을 가져�
 export function user(id) {
   return fetch(`http://localhost:3000/users/${id}`)
     .then(res => res.json())
-    .then(payload => { payload })
-    .catch(error => { error });
+    .then(payload => ({ payload }))
+    .catch(error => ({ error }));
 }
 ```
 
