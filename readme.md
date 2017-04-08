@@ -34,10 +34,19 @@
 -   [\[번역\] 리덕스 패턴과 안티 패턴 (Redux Patterns and Anti-Patterns)](https://www.vobour.com/book/view/TGJKKFN2TmyxaGDpN) <!--2016/11-->
 -   [리덕스(Redux) 애플리케이션 설계에 대한 생각](http://huns.me/development/1953) <!--2016/07-->
 
+### Blogs
+
+리액트와 관련된 좋은 리소스를 제공하는 블로그들입니다.
+
+-   [Velopert.log](https://velopert.com/)
+-   [ZeroCho Blog](https://www.zerocho.com/)
+-   [오늘도 끄적끄적](https://perfectacle.github.io/)
+
 ## 문서들
 
 ### React
 
+-   [\[Next.js 2.0\] 간단한 React 전용 서버사이드 프레임워크, 기초부터 본격적으로 파보기](https://velopert.com/3293) 2017/04
 -   [\[번역\] 리액트하다가 막혔을 때 생각해볼 4가지 질문](https://velopert.com/3260) 2017/03
 -   [\[번역\] 리액트에 대해서 그 누구도 제대로 설명하기 어려운 것 – 왜 Virtual DOM 인가?](https://velopert.com/3236) 2017/03
 -   [ReactJS: Props와 State 비교](https://wonhada.com/?topic=reactjs-props와-state-비교) 2017/03
