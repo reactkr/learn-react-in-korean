@@ -67,6 +67,7 @@
 -   [react로 개발자 2명이 플랫폼 4개를 서비스하는 이야기](https://www.slideshare.net/deview/125react24) 2016/10
 -   [\[번역\] 리액트 State 비쥬얼 가이드(A Visual Guide to State in React)](https://www.vobour.com/book/view/3wKFokAjFncKKCiQg) 2016/10
 -   [\[번역\]\[React Router\] 시리즈](http://yubylab.tistory.com/entry/React-Router-Lesson01-settingup) 2016/10
+-   [React, Google Maps, D3 를 이용한 Hexagonal Binning 기법](http://meshlabs.ghost.io/react-hexagonal-binning) 2016/9
 -   [React, Redux and es6/7](https://www.slideshare.net/looklazy/react-redux-and-es67) 2016/09
 -   [React.js가 IE 브라우저 지원 중단했다면서요?](https://medium.com/little-big-programming/react-js가-ie-브라우저-지원-중단했다면서요-a9734bc323cb#.ym56hg9ek) 2016/09
 -   [리액트 딜레마](http://huns.me/development/2011) 2016/08
