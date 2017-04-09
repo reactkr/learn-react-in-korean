@@ -962,7 +962,7 @@ React Coponent가 재사용 가능한건, Unit 테스트들과 자연스럽게 �
 -   Prop 타입들은 테스트할 필요가 없다.
 -   Inline 스타일들은 일반적으로 테스트할 필요가 없다.
 -   렌더링하려는 Component들과 그것들에게 넘겨주는 Prop들은 테스트해야 할만큼 중요하다.
--   해당 Component가 신경쓸게 아니건 테스트 하지 말라.
+-   해당 Component가 신경쓸게 아닌 것은 테스트 하지 말라.
 
 <!---   **Find your Component Contract first**
 -   Decide which constraints are worth testing and which aren’t
