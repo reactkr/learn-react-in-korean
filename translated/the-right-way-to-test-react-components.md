@@ -380,17 +380,17 @@ Component의 `propTypes` 역시 Contract를 알기 위한 단서를 찾기 좋�
 <!--Some of these constraints are worth testing, and others are not. Here are three rules of thumb I use to determine that something is **not worth testing**:-->
 
 1.  테스트 코드에 **실행 코드가 그대로 중복되어** 쓰여져 있는가? 이것은 테스트가 망가지기 쉽게 만듭니다.
-2.  테스트 코드의 Assertion이 **이미 다른 라이브러리 코드가 보증하는 (그리고 책임지는) 부분**과 중복되는가? *(가장 중요)*
+2.  테스트 코드의 Assertion이 **이미 다른 라이브러리 코드가 보증하는 (그리고 책임지는) 부분**과 중복되는가? _(가장 중요)_
 3.  Component 바깥에서의 시점에서, **이러한 세부항목들이 중요한가? 혹은 그저 내부적인 사정**인가? 이러한 내부적인 사정으로 인한 영향는 Component의 public API를 쓰는 것만으로 설명 될 수 있는가?
 
 <!--1.  Will the test have to **duplicate exactly the application code**? This will make it brittle.
 2.  Will making assertions in the test duplicate any behavior that is **already covered by (and the responsibility of) library code**? (Top highlight)
 3.  From an outsider’s perspective, **is this detail important, or is it only an internal concern**? Can the effect of this internal detail be described using only the component’s public API?-->
 
-
 이것들은 그저 Rules of thumb이므로, 어렵다다고 테스트하기 싫다는 변명으로 쓰여지지 않도록 조심하세요. **종종, 테스트하기 어려워 보이는 것들이 테스트에서 가장 중요합니다.** 테스트가 행해지는 코드는 어플리케이션의 다른 나머지 코드까지도 여러 많은 가정들을 잡아 주기 때문에 안정적인 결과물을 만들 수 있습니다.
 
 <!--These are only rules of thumb, so be careful not to use them to justify not testing something just because it’s hard. **Often, things that seem hard to test are the most important to test**, because the code under test is making many assumptions about the rest of the application.-->
+
 <!--원문은 안정적인 결과물이란 표현은 없고 많은 가정을 만들어준다고 적혀있지만, 무리해서 직역할 경우 오히려 원작자의 의도가 파악하기 힘들어질 우려가 있으므로 설명을 추가함-->
 
 그럼 Constraint를 살펴보고 무엇을 테스트할지 말지를 Rules of Thumb를 통해 결정해봅시다. 먼저 처음 3개부터 시작합시다:
@@ -447,10 +447,9 @@ backgroundPosition: "center",
 backgroundSize: "cover",
 ```
 
-만약 이 스타일들이 있는지 테스트를 하려 한다면, 유효한 Assertion를 위해 각 스타일의 값을 *있는 그대로* 테스트해야 할 것입니다. 고로 Assertion들은 다음과 같이 됩니다:
+만약 이 스타일들이 있는지 테스트를 하려 한다면, 유효한 Assertion를 위해 각 스타일의 값을 _있는 그대로_ 테스트해야 할 것입니다. 고로 Assertion들은 다음과 같이 됩니다:
 
 <!--If we wrote a test that these styles were on the div, we would have to test the value of each style _exactly_ in order to make useful assertions. So our assertions might be something like:-->
-
 
 -   `div`는 `height` 스타일은 `100%`의 값을 가진다.
 -   `div`는 `display` 스타일을 `flex`로 가진다.
@@ -595,7 +594,7 @@ Constraint들을 세세하게 살펴봄으로써, 많은 수의 Constraint를 �
 
 <!--## Setting Up Some Test Boilerplate-->
 
-Component테스트를 위한 준비를 해봅시다. 저는 [enzyme](http://airbnb.io/enzyme/)와 함께 Jest](https://facebook.github.io/jest/)를 쓸겁니다. Jest는 [React와 매우 잘 맞고](https://facebook.github.io/jest/docs/tutorial-react.html) [create-react-app](https://github.com/facebookincubator/create-react-app)으로 만들어진 어플리케이션에도 포함된 테스트러너입니다. 그래서 어쩌면 여러분들은 이미 사용할 준비가 되어있을 수도 있습니다. Enzyme는 브라우저와 Node환경에서 동작하는 믿을 만한 React 테스트 라이브러리입니다.
+Component테스트를 위한 준비를 해봅시다. 저는 [enzyme](http://airbnb.io/enzyme/)와 함께 [Jest](https://facebook.github.io/jest/)를 쓸겁니다. Jest는 [React와 매우 잘 맞고](https://facebook.github.io/jest/docs/tutorial-react.html) [create-react-app](https://github.com/facebookincubator/create-react-app)으로 만들어진 어플리케이션에도 포함된 테스트러너입니다. 그래서 어쩌면 여러분들은 이미 사용할 준비가 되어있을 수도 있습니다. Enzyme는 브라우저와 Node환경에서 동작하는 믿을 만한 React 테스트 라이브러리입니다.
 
 <!--Let’s start scaffolding out a test for this component. I will be using [Jest](https://facebook.github.io/jest/) with [enzyme](http://airbnb.io/enzyme/) in my tests. Jest [works great with React](https://facebook.github.io/jest/docs/tutorial-react.html) and is also the test runner included in apps created with [create-react-app](https://github.com/facebookincubator/create-react-app), so you may already be set up to use it. Enzyme is a mature React testing library that works in both node and the browser.-->
 
@@ -671,7 +670,7 @@ describe("LockScreen", () => {
 
 -   `let`으로 `props`와 `mountedLockScreen`를 설정합니다. 이로써 `describe`함수 안이면 어디에서든 부를 수 있습니다.
 -   **`lockScreen` 함수** 역시 `describe` 안 어디에서든 부를 수 있습니다. 이것은 `mountedLockScreen` 변수에 LockScreen에 Prop와 함꼐 Mount해주고, 이미 Mount된 것을 돌려줍니다. 이 함수는 enzyme ReactWrapper를 리턴합니다. 이건 매 테스트마다 사용할 겁니다.
--  `beforeEach`는 `props`와 `mountedLockScreen`을 매 테스트마다 초기화시킵니다. 하지 않을 경우, 한 테스트의 상태가 다른 테스트에 영향을 줄 수 있습니다. 여기에 `mountedLockScreen`를 `undefined`로 설정함으로써, 다음 테스트가 실행될 때, `lockScreen`을 부르면 매번 새로운 `LockScreen`이 `props`와 함께 Mount될겁니다.
+-   `beforeEach`는 `props`와 `mountedLockScreen`을 매 테스트마다 초기화시킵니다. 하지 않을 경우, 한 테스트의 상태가 다른 테스트에 영향을 줄 수 있습니다. 여기에 `mountedLockScreen`를 `undefined`로 설정함으로써, 다음 테스트가 실행될 때, `lockScreen`을 부르면 매번 새로운 `LockScreen`이 `props`와 함께 Mount될겁니다.
 
 <!---   I create `let` bindings for `props` and `mountedLockScreen`, so that those variables will be available to everything within the `describe` function.
 -   I create a **`lockScreen` function** that is available anywhere within the `describe` function, that uses the `mountedLockScreen` variable to either mount a LockScreen with the current props or return the one that has already been mounted. This function returns an enzyme ReactWrapper. We will use it in every test.
@@ -692,7 +691,6 @@ describe("LockScreen", () => {
 Constraint목록을 보며 하나씩 테스트를 추가해 봅시다. 각각의 테스트는 보일러플레이트의 `// All tests will go here` 코멘트 뒤로 추가되는 형식으로 쓰여져나갈 것입니다.
 
 <!--Let’s go through our list of constraints and add a test for each. Every test will be written such that it can be inserted at the `// All tests will go here` comment in the boilerplate.-->
-
 
 -   `div`는 항상 렌더링 됩니다.
 
@@ -900,6 +898,7 @@ describe("when `userInfoMessage` is undefined", () => {
 ```
 
 이걸로 모든 Constraint의 테스트가 완성되었습니다! 최종 테스트 파일은 [여기](https://gist.github.com/suchipi/8f8d7de60e8e4ae48153db0c36133e63)에서 확인하실 수 있습니다.
+
 <!--That’s all of our constraints! You can view the final test file [here](https://gist.github.com/suchipi/8f8d7de60e8e4ae48153db0c36133e63).-->
 
 ## "이건 내 일이 아닌데"
@@ -977,6 +976,7 @@ React Coponent가 재사용 가능한건, Unit 테스트들과 자연스럽게 �
 <!--If you disagree or found this post helpful, I’d love to hear from you [on twitter](https://twitter.com/suchipi). Let’s all learn how to test React components together!-->
 
 _Stephen Scott씨는 통합 스마트홈 자동화 시스템을 만드는 [Nexia](http://www.nexiahome.com/)의 개발자입니다. Nexia는 고용중입니다! Colorado주 Broomfield에 있는 사무실에있는 저희 개발자 팀에 함께하고 싶으시다면 [Twitter](https://twitter.com/suchipi)로 알려주세요._
+
 <!--_Stephen Scott is a developer at [Nexia](http://www.nexiahome.com/) working on a unified Smart Home Automation System. Nexia is hiring! Ping Stephen [on Twitter](https://twitter.com/suchipi) if you want to join our close-knit team of developers in-office in Broomfield, CO._-->
 
 * * *
