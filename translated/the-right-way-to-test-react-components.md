@@ -1,4 +1,4 @@
-> [kuy](https://twitter.com/suchipi)님이 쓰신 [The Right Way to Test React Components](https://medium.freecodecamp.com/the-right-way-to-test-react-components-548a4736ab22)라는 글의 번역입니다. 본 번역 글은 [원 작자의 허가하](https://medium.com/@suchipi/sure-please-just-do-the-same-things-indicate-that-it-is-translated-from-this-one-with-a-link-51eb96fbbb58)에 작성되어 있습니다.
+> [Stephen Scott](https://twitter.com/suchipi)님이 쓰신 [The Right Way to Test React Components](https://medium.freecodecamp.com/the-right-way-to-test-react-components-548a4736ab22)라는 글의 번역입니다. 본 번역 글은 [원 작자의 허가하](https://medium.com/@suchipi/sure-please-just-do-the-same-things-indicate-that-it-is-translated-from-this-one-with-a-link-51eb96fbbb58)에 작성되어 있습니다.
 >
 > 번역문이지만 한국어로 읽히기 쉽게 하게 위해 원작자의 **의도가 변하지 않는 선에서** 적극적으로 의역을 하고 있습니다. 반대로 본문에서의 중요하게 다뤄지는 개념들(React의 Component, Prop, State와 같이)은 번역시 오해가 생길 수 있으므로 원문을 그대로 씁니다.
 >
@@ -975,7 +975,7 @@ React Coponent가 재사용 가능한건, Unit 테스트들과 자연스럽게 �
 
 <!--If you disagree or found this post helpful, I’d love to hear from you [on twitter](https://twitter.com/suchipi). Let’s all learn how to test React components together!-->
 
-_Stephen Scott씨는 통합 스마트홈 자동화 시스템을 만드는 [Nexia](http://www.nexiahome.com/)의 개발자입니다. Nexia는 고용중입니다! Colorado주 Broomfield에 있는 사무실에있는 저희 개발자 팀에 함께하고 싶으시다면 [Twitter](https://twitter.com/suchipi)로 알려주세요._
+_Stephen Scott님은 통합 스마트홈 자동화 시스템을 만드는 [Nexia](http://www.nexiahome.com/)의 개발자입니다. Nexia는 고용중입니다! Colorado주 Broomfield에 있는 사무실에있는 저희 개발자 팀에 함께하고 싶으시다면 [Twitter](https://twitter.com/suchipi)로 알려주세요._
 
 <!--_Stephen Scott is a developer at [Nexia](http://www.nexiahome.com/) working on a unified Smart Home Automation System. Nexia is hiring! Ping Stephen [on Twitter](https://twitter.com/suchipi) if you want to join our close-knit team of developers in-office in Broomfield, CO._-->
 
