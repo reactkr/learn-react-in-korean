@@ -12,7 +12,7 @@
 
 <!--There’s a lot of confusion right now about the “right” way to test your React components. Should you write all your tests by hand, or only use snapshots, or some of both? Should you test props? State? Styles/Layout?-->
 
-제 생각에는 하나의 "올바른" 방법은 없는 것 같습니다만, 그래도 정말 효과가 있어 조금의 패턴들과 팁들을 찾아 내어 소개드리고 싶습니다.
+제 생각에는 하나의 "올바른" 방법은 없는 것 같습니다만, 그래도 효과가 있는 몇가지 팁과 패턴들을 소개드리고 싶습니다.
 
 <!--I don’t think there’s one “right” way, but I’ve found a few patterns and tips that work really well for me that I’d like to share.-->
 
