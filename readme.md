@@ -26,6 +26,7 @@
 -   [\[번역\] 상세한 리액트 Higher Order Components 설명(React Higher Order Components in depth)](https://www.vobour.com/book/view/XSSFQ5wBzsCLAbbo4) <!--2016/12-->
 -   [React 렌더링과 성능 알아보기](https://github.com/nhnent/fe.javascript/wiki/March-20---March-24,-2017-(2)) <!--2017/03-->
 -   [React 컴포넌트를 테스트하는 세 가지 방법](http://webframeworks.kr/tutorials/react/testing/) <!--2016-->
+-   [React Component를 테스트하기 위한 올바른 방법](./translated/the-right-way-to-test-react-components.md) <!-- 2017/02-->
 
 ### Redux
 
