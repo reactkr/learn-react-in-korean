@@ -30,10 +30,11 @@
 
 ### Redux
 
--   [\[번역\] Redux 한글 문서](http://dobbit.github.io/redux/index.html)
+-   [\[번역\] Redux 한글 문서](http://dobbit.github.io/redux/index.html) <!--2017/05-->
 -   [\[번역\] redux-saga로 비동기처리와 분투하다](./translated/deal-with-async-process-by-redux-saga.md) <!--2016/12-->
 -   [\[번역\] 리덕스 패턴과 안티 패턴 (Redux Patterns and Anti-Patterns)](https://www.vobour.com/book/view/TGJKKFN2TmyxaGDpN) <!--2016/11-->
 -   [리덕스(Redux) 애플리케이션 설계에 대한 생각](http://huns.me/development/1953) <!--2016/07-->
+-   [Redux 를 통한 React 어플리케이션 상태 관리](https://velopert.com/3365)
 
 ### Blogs
 
@@ -47,6 +48,7 @@
 
 ### React
 
+-   [\[번역\] Next.js 2.0을 이용하여 보다 나은 Universal JavaScript 앱 만들기](https://medium.com/@LetMeEatTheCake/next-js-2-0을-이용하여-보다-낳은-universal-javascript-앱을-만들기-70fb32714ad4) 2017/04
 -   [\[Next.js 2.0\] 간단한 React 전용 서버사이드 프레임워크, 기초부터 본격적으로 파보기](https://velopert.com/3293) 2017/04
 -   [\[번역\] 리액트하다가 막혔을 때 생각해볼 4가지 질문](https://velopert.com/3260) 2017/03
 -   [\[번역\] 리액트에 대해서 그 누구도 제대로 설명하기 어려운 것 – 왜 Virtual DOM 인가?](https://velopert.com/3236) 2017/03
@@ -112,6 +114,7 @@
 -   [리액트 네이티브\[React Native\] 0.4x](https://wonhada.com/?docs=리액트-네이티브react-native-0-41/기본the-basics/시작하기)
 
 ### Webpack
+
 -   [(Webpack 2) 상대경로 헬파티에서 탈출하기](http://perfectacle.github.io/2017/04/20/webpack2-escape-relative-path-hell/) 2017/04
 -   [(Webpack 2) 최적화하기](http://perfectacle.github.io/2017/04/18/webpack2-optimize/) 2017/04
 -   [(Webpack 2) 코드를 분할해보자!](https://perfectacle.github.io/2017/03/13/webpack2-code-splitting/) 2017/03
