@@ -48,6 +48,7 @@
 
 ### React
 
+-   [Create React App에 Flow(정적 타입 체크 라이브러리) 사용 하기](https://medium.com/@bestseob93/starting-create-react-app-with-flow-a44a72d295cf) 2018/01
 -   [\[번역\] Next.js 2.0을 이용하여 보다 나은 Universal JavaScript 앱 만들기](https://medium.com/@LetMeEatTheCake/next-js-2-0을-이용하여-보다-낳은-universal-javascript-앱을-만들기-70fb32714ad4) 2017/04
 -   [\[Next.js 2.0\] 간단한 React 전용 서버사이드 프레임워크, 기초부터 본격적으로 파보기](https://velopert.com/3293) 2017/04
 -   [\[번역\] 리액트하다가 막혔을 때 생각해볼 4가지 질문](https://velopert.com/3260) 2017/03
@@ -100,7 +101,8 @@
 ## Misc
 
 ### React Native
-
+-   [React Native Swift 구글 스트리트뷰 컴포넌트 만들기 #1](https://medium.com/@bestseob93/react-native-swift-구글-스트리트-뷰-컴포넌트-만들기-1-fe2fbf7b59b1) 2017/05
+-   [React Native Swift 구글 스트리트뷰 컴포넌트 만들기 #2](https://medium.com/@bestseob93/react-native-swift-%EA%B5%AC%EA%B8%80-%EC%8A%A4%ED%8A%B8%EB%A6%AC%ED%8A%B8-%EB%B7%B0-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%EB%A7%8C%EB%93%A4%EA%B8%B0-2-c3725eaa6cf7) 2017/05
 -   [리액트 네이티브 FlatList (React Native FlatList)](https://www.vobour.com/book/view/gYkhxyL2FsWJWXPPS) 2017/04
 -   [React Native 안드로이드 성능 최적화](https://taegon.kim/archives/5950) 2017/03
 -   [\[번역\] 인스타그램이 React Native로 앱을 만든 과정](https://taegon.kim/archives/5745) 2017/03
