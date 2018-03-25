@@ -124,7 +124,7 @@ Flux나 Redux만으로도 난해했던것이 더욱 새로운 개념을 가져�
 
 <!--通信処理が完了するまで「読込中...」のようなメッセージを表示するためには、通信の状態をStoreで保持した上で、通信の開始・成功・失敗の３つのタイミングでActionをdispatchして状態を変化させる必要があります。この実装パターンはReduxの[サンプルコード](https://github.com/reactjs/redux/blob/master/examples/real-world/src/actions/index.js#L3-L5)がおそらくオリジナルで、それを切り出した[redux-api-middleware](https://github.com/agraboso/redux-api-middleware)というライブラリもありますが、今回はMiddlewareやredux-api-middlewareを使わずに書いています。通信の状態だけでなく、通信が正常に終了したのか、エラーによって終了したのかも合わせて格納しておくとエラーメッセージの表示に使うことができて便利です。-->
 
-샘플 코드는 3가지의 Action 타입 `REQUEST_USER`, `SUCCESS_USER`, `FAILURE_USER`의 문자열 상수와 Action 오브젝트를 생성하기위한 3가지의 Action Creator `requestUser`,  `successUser`, `failureUser`는 `actions.js`는 `actions.js`에 정의되어 있습니다.
+샘플 코드는 3가지의 Action 타입 `REQUEST_USER`, `SUCCESS_USER`, `FAILURE_USER`의 문자열 상수와 Action 오브젝트를 생성하기위한 3가지의 Action Creator `requestUser`,  `successUser`, `failureUser`는 `actions.js`에 정의되어 있습니다.
 
 <!--サンプルコードでは３つのAction Type `REQUEST_USER`、`SUCCESS_USER`、`FAILURE_USER` の文字列定数と、Actionオブジェクトを生成するための３つのAction Creator `requestUser`、`successUser`、`failureUser` は `actions.js` で定義済みとします。-->
 
