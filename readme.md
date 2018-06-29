@@ -28,7 +28,7 @@
 -   [React 렌더링과 성능 알아보기](https://github.com/nhnent/fe.javascript/wiki/March-20---March-24,-2017-(2)) <!--2017/03-->
 -   [React 컴포넌트를 테스트하는 세 가지 방법](http://webframeworks.kr/tutorials/react/testing/) <!--2016-->
 -   [React Component를 테스트하기 위한 올바른 방법](./translated/the-right-way-to-test-react-components.md) <!-- 2017/02-->
-
+-   [\[번역\] Presentational and Container Components](https://medium.com/@seungha_kim_IT/presentational-and-container-components-%EB%B2%88%EC%97%AD-1b1fb2e36afb) <!--2018/06-->
 ### Redux
 
 -   [\[번역\] Redux 한글 문서](http://dobbit.github.io/redux/index.html) <!--2017/05-->
