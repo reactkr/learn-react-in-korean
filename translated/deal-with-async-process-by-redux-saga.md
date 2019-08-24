@@ -183,7 +183,7 @@ export function fetchUser(id) {
 
 <!--`api.js` の `user` 関数はユーザー情報を取得する関数です。Fetch APIはPromiseを返すので適切に処理してやる必要があります。エラーハンドリングの方法は好みで構いませんが、今回は `try/catch` を使用せずに戻り値で判定するスタイルを採用しています。-->
 
-`actions.js`의 `fetchUser`함수는 Action Creator이지만, redux-thunk로 부터 실행되기 위해선, Action 오브젝트가 아니라 함수를 돌려줍니다. redux-thunk는 dispatch뿐만 아니라 getState도 파라미터로 넘겨주지만, 지금은 필요하지 않으므로 생략합니다. 좀 전의 통신처리의 패턴에 따라 처음에는 `REQUEST_USER` Action을 dispatch하고, 완료하거나 실패하면 `SUCCESS_USER` 혹은 `FAILURE_USER` Action을 dispatch합니다. 이렇게 redux-thunk를 사용하면 비동기처리 코드를 Action Creator에다 적게 됩니다. 본래의 Action Creator는 Action 오브젝트를 생성하여 돌려줄 뿐이었기에,생성한 Action 오브젝트를 dispatch하는 데다가, 앞뒤로 이런저런 로직이 들어가는건 위험한 냄새가 납니다. 도입도 사용법도 간단한 반면, 사태파악도 안된채로 편하니까 막쓰다간 나중에 지옥을 맞이할지도 모릅니다. 소극적으로 사용한다면 문제가 없겠지만, 복잡한 통신처리는 정말로 쓰고 싶지 않습니다. 쓰고 싶다는 생각도 안됩니다.
+`actions.js`의 `fetchUser`함수는 Action Creator이지만, redux-thunk로 부터 실행되기 위해선, Action 오브젝트가 아니라 함수를 돌려줍니다. redux-thunk는 dispatch뿐만 아니라 getState도 파라미터로 넘겨주지만, 지금은 필요하지 않으므로 생략합니다. 좀 전의 통신처리의 패턴에 따라 처음에는 `REQUEST_USER` Action을 dispatch하고, 완료하거나 실패하면 `SUCCESS_USER` 혹은 `FAILURE_USER` Action을 dispatch합니다. 이렇게 redux-thunk를 사용하면 비동기처리 코드를 Action Creator에다 적게 됩니다. 본래의 Action Creator는 Action 오브젝트를 생성하여 돌려줄 뿐이었기에, 생성한 Action 오브젝트를 dispatch하는 데다가, 앞뒤로 이런저런 로직이 들어가는건 위험한 냄새가 납니다. 도입도 사용법도 간단한 반면, 사태파악도 안된채로 편하니까 막쓰다간 나중에 지옥을 맞이할지도 모릅니다. 소극적으로 사용한다면 문제가 없겠지만, 복잡한 통신처리는 정말로 쓰고 싶지 않습니다. 쓰고 싶다는 생각도 안됩니다.
 
 <!--`actions.js` の `fetchUser` 関数はAction Creatorですが、redux-thunkに実行してもらうためにActionオブジェクトを返さずに関数を返します。redux-thunkはdispatchだけでなくgetStateもパラメータとして渡してくれますが、今回は不要なので省略しています。さきほどの通信処理の実装パターンに従って最初に `REQUEST_USER` Actionをdispatchして、完了または失敗したら `SUCCESS_USER` または `FAILURE_USER` Actionをdispatchします。このようにredux-thunkを使うと非同期処理のコードをAction Creatorに書くことになります。本来のAction CreatorはActionオブジェクトを生成して返すだけなので、生成したActionオブジェクトをdispatchして、さらに処理の前後にいろいろとロジックが書けてしまうのは危険な香りがしますね。導入も使い方も簡単なのでお手軽な反面、右も左も分からない状態で便利だからといって使いまくると後で地獄を見るかもしれません。控えめに使うのであれば問題ありませんが、とてもこれで複雑な通信処理を書きたいとは思えません。思ってはいけません。-->
 
@@ -239,7 +239,7 @@ redux-thunk로 인한 코드와의 비교를 위해 일련의 흐름을 써보�
 
 <!--redux-thunkによるコードとの比較のため一連の流れのように書きましたが、実はこの処理には同時並行に走る２つの流れがあります。それがタスクです。`sagas.js` に定義されている２つの関数はどちらもredux-sagaのタスクです。１つずつ見ていきます。-->
 
-`rootSaga` Task는 Redux의 Store가 작성 된 후, redux-saga의 Middleware가 기동 될 때 1번만 불러와집니다. 그리고 `fork` Effect을 사용하여 redux-saga에게 다른 Task를 기동할 것을 요청합니다. 앞서 설명한듯이, Task내에는 실제 처리를 행하지 않으므로, `fork`함수로부터 생성된 것은 단순한 오브젝트입니다. 이것은 Flux 아키텍쳐의 Action 오브젝트와 가까운 느낌입니다. 그러므로 다음과같이 오브젝트의 내용을 보는 것도 가능합니다.
+`rootSaga` Task는 Redux의 Store가 작성 된 후, redux-saga의 Middleware가 기동 될 때 1번만 불러와집니다. 그리고 `fork` Effect을 사용하여 redux-saga에게 다른 Task를 기동할 것을 요청합니다. 앞서 설명한듯이, Task내에는 실제 처리를 행하지 않으므로, `fork`함수로부터 생성된 것은 단순한 오브젝트입니다. 이것은 Flux 아키텍쳐의 Action 오브젝트와 가까운 느낌입니다. 그러므로 다음과 같이 오브젝트의 내용을 보는 것도 가능합니다.
 
 <!--`rootSaga` タスクはReduxのStoreが作成されたあと、redux-sagaのMiddlewareが起動するときに１回だけ呼び出されます。そして `fork` 作用を使ってredux-sagaに別タスクの起動を依頼します。前述の通り、タスク内では実際の処理は行わないため、`fork` 関数を呼び出して生成されるのはただのオブジェクトです。これはFluxアーキテクチャのActionオブジェクトに近い感じです。そのため次のようにしてオブジェクトの中身を見ることもできます。-->
 
@@ -274,11 +274,11 @@ console.log(fork(handleRequestUser));
 
 <!--`handleRequestUser` タスクが起動されるとすぐに `REQUEST_USER` Actionを待つために `take` 作用を呼び出します。この「待つ」という挙動が **非同期処理を同期的に書く** という特徴的なタスクの記述につながります。redux-sagaのタスクをGenerator関数で書く理由は `yield` によって処理の流れを一時停止するためです。この仕組みのおかげでシングルスレッドのJavaScriptで複数のタスクを立ち上げて、それぞれで特定のActionを待ったり、通信処理の結果待ちをしても処理が滞ることはありません。-->
 
-`REQUEST_USER` Action이 dispatch되면 `take` Effect를 `yield` 하여 일시정지된 코드가 재개되고, dispatch된 Action 오브젝트를 돌려줍니다. 그리고 곧 API 불러냅니다. 여기서 `call` Effect를 사용합니다. 이것도 다른 Effect와 같이 그 장소에서 실행되지 않는건 공통적이지만, 지정된 함수가 Promise를 돌려줄 경우, 그 Promise 가 resolve되고 나서 제어를 돌려줍니다. `take` Effect와 닮은 움직임이네요. 통신처리가 완려하면 다시 한번 `handleRequestUser` Task로 제어를 돌려주고, 결과에 따라 Action을 dispatch합니다. Action의 dispatch에는 `put` Effect를 사용합니다.
+`REQUEST_USER` Action이 dispatch되면 `take` Effect를 `yield` 하여 일시정지된 코드가 재개되고, dispatch된 Action 오브젝트를 돌려줍니다. 그리고 곧 API를 불러냅니다. 여기서 `call` Effect를 사용합니다. 이것도 다른 Effect와 같이 그 장소에서 실행되지 않는건 공통적이지만, 지정된 함수가 Promise를 돌려줄 경우, 그 Promise 가 resolve되고 나서 제어를 돌려줍니다. `take` Effect와 닮은 움직임이네요. 통신처리가 완료되면 다시 한번 `handleRequestUser` Task로 제어를 돌려주고, 결과에 따라 Action을 dispatch합니다. Action의 dispatch에는 `put` Effect를 사용합니다.
 
 <!--`REQUEST_USER` Actionがdispatchされると `take` 作用を `yield` して一時停止していたコードが再開し、dispatchされたActionオブジェクトが戻り値として返ってきます。そしてようやくAPI呼び出しです。ここで `call` 作用を使います。これも他の作用と同様にその場で実行しないのは共通していますが、指定した関数がPromiseを返す場合、それがresolveしてから制御を返します。`take` 作用と似たような挙動ですね。通信処理が完了すると再び `handleRequestUser` タスクに制御が戻り、結果に応じてActionをdispatchします。Actionのdispatchには `put` 作用を使います。-->
 
-이것으로 통신처리 자체는 완료되었지만, 한가지 더 Task를 정의할 때 자주 쓰는 용어에 대해 설명해두겠습니다. 최초로 코드를 봤을때 "어?" 라고 느끼셨을 거라 생각하지만, `handleRequestUser` Task는 전체가 while문으로된 무한 루프로 감싸여 있습니다. 그 결과 `put` Effect로 Effect로 Action을 dispatch한 후, 루프의 처음으로 돌아가서 다시 한번 `take` Effect로 `REQUEST_USER` Action을 기다리게 됩니다. 즉, Action을 기다려 통신처리를 할 뿐인 Task가 됩니다. 여기가 매우 중요합니다. 이렇게 극단적으로 해야 할 일을 제한해두는 것으로 코드는 매우 단순해집니다. 당연히 버그도 줄겠죠. 게다가 비동기처리에 항상 따라오는 콜백 지옥, 깊은 구조, 뜬금없이 나타나는 Promise가 사라지게 됩니다.
+이것으로 통신처리 자체는 완료되었지만, 한가지 더 Task를 정의할 때 자주 쓰는 용어에 대해 설명해두겠습니다. 최초로 코드를 봤을때 "어?" 라고 느끼셨을 거라 생각하지만, `handleRequestUser` Task는 전체가 while문으로된 무한 루프로 감싸여 있습니다. 그 결과 `put` Effect로 Action을 dispatch한 후, 루프의 처음으로 돌아가서 다시 한번 `take` Effect로 `REQUEST_USER` Action을 기다리게 됩니다. 즉, Action을 기다려 통신처리를 할 뿐인 Task가 됩니다. 여기가 매우 중요합니다. 이렇게 극단적으로 해야 할 일을 제한해두는 것으로 코드는 매우 단순해집니다. 당연히 버그도 줄겠죠. 게다가 비동기처리에 항상 따라오는 콜백 지옥, 깊은 구조, 뜬금없이 나타나는 Promise가 사라지게 됩니다.
 
 <!--これで通信処理自体は完了なのですが、もう１つだけタスクを定義するときによく使うイディオムについて説明しておきます。最初にコードを見たときに「おや？」と気付いたと思うのですが、`handleRequestUser` タスクは全体がwhile文による無限ループで囲まれています。その結果 `put` 作用でActionをdispatchしたあと、ループの先頭に戻って再び `take` 作用で `REQUEST_USER` Actionを待つことになります。つまりひたすらActionを待って通信処理をするだけのタスクになります。ここ、すごく大事なところです。これくらい極端にやるべきことを絞ってあげるとコードはとても単純でコンパクトになります。当然バグも減りますね。さらに非同期処理に常につきまとうコールバック地獄、深いネスト、突如として出現するPromiseが消えてくれます。-->
 
@@ -302,7 +302,7 @@ redux-thunk는 Action Creator가 함수를 넘겨주기에 필연적으로 Actio
 
 <!--### 処理を複雑にしてみる-->
 
-그다지 어려운 처리라면 이해하기 어려워지기 때문에, 이전 [Redux의 middleware를 적극적으로 써보기](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e)라는 포스팅에 응용 예로 만든 [API 요청을 체인시키기](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e#api%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%82%92%E3%83%81%E3%82%A7%E3%82%A4%E3%83%B3%E3%81%95%E3%81%9B%E3%82%8B)를 redux-thunk와 redux-saga로 각각 써보겠습니다. 포스팅의 예제은 어떤 통신처리가 끝난 이후, 그 결과에 따라 다시 통신처리를 개시하는 것입니다. 이번 예제에서는 유저 정보를 취득한 이후, 유저정보에 포함된 지역명을 사용하여 같은 지역에 살고 있는 다른 유저를 검색하여 제안하는 기능을 추가해봅니다. 새로운 `api.js`에 추가된 `searchByLocation` 함수는 redux-thunk와 redux-saga로 만든 예제 모두 사용합니다. Action Type이나 Action Creator등은 적당히 정의해뒀다고 생각해주세요.
+그다지 어려운 처리라면 이해하기 어려워지기 때문에, 이전 [Redux의 middleware를 적극적으로 써보기](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e)라는 포스팅에 응용 예로 만든 [API 요청을 체인시키기](http://qiita.com/kuy/items/57c6007f3b8a9b267a8e#api%E5%91%BC%E3%81%B3%E5%87%BA%E3%81%97%E3%82%92%E3%83%81%E3%82%A7%E3%82%A4%E3%83%B3%E3%81%95%E3%81%9B%E3%82%8B)를 redux-thunk와 redux-saga로 각각 써보겠습니다. 포스팅의 예제는 어떤 통신처리가 끝난 이후, 그 결과에 따라 다시 통신처리를 개시하는 것입니다. 이번 예제에서는 유저 정보를 취득한 이후, 유저정보에 포함된 지역명을 사용하여 같은 지역에 살고 있는 다른 유저를 검색하여 제안하는 기능을 추가해봅니다. 새로운 `api.js`에 추가된 `searchByLocation` 함수는 redux-thunk와 redux-saga로 만든 예제 모두 사용합니다. Action Type이나 Action Creator등은 적당히 정의해뒀다고 생각해주세요.
 
 > 역자주: 예제의 원본이 되는 링크는 일본어이지만 이미 필요한 내용들은 본 포스팅에 다 있기에 모르셔도 크게 문제 없습니다.
 
@@ -529,7 +529,7 @@ describe('rootSaga', () => {
 });
 ```
 
-Task를 포크하고 있는지 테스트를 한다. 라고 하면 어렵게 들리지만, 여기서 Task라는 건 단순한 Generator 함수로, Task가 돌려주는건 모두 단순한 오브젝트라는걸 떠올립시다. 고로 redux-saga에 두어진 Task의 테스트는 단순히 오브젝트를 비교하는 것으로 대부분 충분합니다. 이 `rootSaga` Task가 포크하고 있는지를 확인하기 위해 `fork` Effect로 오브젝트를 생성하여 비교하는 것으로 OK입니다. 이 expected로 지정된 오브젝트도 Task의 작성에 쓰여진 Effect Creator로 생성하여 문제없는것이 재밋는 포인트입니다. **테스트해야 할 것은 이 Task가 무엇을 하고 있는 가로써, 그에 앞서 무엇을 하는가는 알 필요 없습니다.**
+Task를 포크하고 있는지 테스트를 한다. 라고 하면 어렵게 들리지만, 여기서 Task라는 건 단순한 Generator 함수로, Task가 돌려주는건 모두 단순한 오브젝트라는걸 떠올립시다. 고로 redux-saga에 두어진 Task의 테스트는 단순히 오브젝트를 비교하는 것으로 대부분 충분합니다. 이 `rootSaga` Task가 포크하고 있는지를 확인하기 위해 `fork` Effect로 오브젝트를 생성하여 비교하는 것으로 OK입니다. 이 expected로 지정된 오브젝트도 Task의 작성에 쓰여진 Effect Creator로 생성하여 문제없는것이 재밌는 포인트입니다. **테스트해야 할 것은 이 Task가 무엇을 하고 있는 가로써, 그에 앞서 무엇을 하는가는 알 필요 없습니다.**
 
 <!--タスクをフォークしているかテストする、と言うと難しそうに聞こえますが、ここでタスクというのはただのGenerator関数で、タスクが返すものはすべてただのオブジェクトである、ということを思い出しましょう。つまりredux-sagaにおけるタスクのテストは単純なオブジェクトの比較でほとんど間に合います。この `rootSaga` タスクはフォークしているか調べたいので `fork` 作用でオブジェクトを生成して比較するだけでOKです。このexpectedに指定するオブジェクトもタスクの記述に使われているEffect Creatorで生成して問題ないのも面白いポイントです。 **テストするべきはこのタスクが何をしようとしているかであって、その先で何をするかは知ったこっちゃないわけです。**-->
 
@@ -604,7 +604,7 @@ describe('handleRequestUser', () => {
 
 <!--今、タスクは停止しています。これを再開するにはさらに `next()` を呼び出します。この `next()` の引数として渡したものは、タスクが再開したときに `yield` から返ってくる戻り値になります。つまりコード中の `(A)` で渡すものが `(A')` で期待している戻り値、というわけですね。同じように `(B)` で渡した通信結果のオブジェクトが `(B')` の `call` 作用の呼び出し結果になります。-->
 
-마지막으로, 통신처리가 끝나면, 다시 리퀘스트를 기다리는 상태가 되었는지 확인합니다. Task를 동기적으로 썻기에, 테스트 코드도 동기적으로 되었습니다.
+마지막으로, 통신처리가 끝나면, 다시 리퀘스트를 기다리는 상태가 되었는지 확인합니다. Task를 동기적으로 썼기에, 테스트 코드도 동기적으로 되었습니다.
 
 <!--最後に、通信処理が終わったら再度リクエストを受け付ける状態になっているか確認しています。タスクを同期的に書いたことで、テストコードも同期的になっています。-->
 
@@ -673,7 +673,7 @@ sagaMiddleware.run(rootSaga);
 export default store;
 ```
 
-`configureStore` 함수를 export하는 대신에 작성한 Store를 export하고 있네요. 그리고 `saga.js`는 이런 상태였습니다.
+`configureStore` 함수를 export하는 대신에 작성한 Store를 export하고 있네요. 그리고 `sagas.js`는 이런 상태였습니다.
 
 <!--`configureStore` 関数をエクスポートする代わりに作成したStoreをエクスポートしていますね。そして `sagas.js` はこんな感じ。-->
 
