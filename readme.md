@@ -12,6 +12,7 @@
 -   [React & Express 를 이용한 웹 어플리케이션 개발하기](https://www.inflearn.com/course/react-강좌-velopert/) <!--2016-->
 -   [\[번역\] 리액트, 리덕스와 리액트-리덕스(React, Redux and react-redux)](https://www.vobour.com/book/view/6vas6uCQF8GXDJDHt) <!--2016/11-->
 -   [\[번역\] 리액트 도움닫기(The Road to learn React)](https://github.com/sujinleeme/the-road-to-learn-react-korean) <!--2018/03-->
+-   [\[번역\] React를 배우기 전에 알아야 할 자바스크립트 기초](https://medium.com/@violetboralee/react%EB%A5%BC-%EB%B0%B0%EC%9A%B0%EA%B8%B0-%EC%A0%84%EC%97%90-%EC%95%8C%EC%95%84%EC%95%BC-%ED%95%A0-javascript%EA%B8%B0%EC%B4%88-e0665f8cbee0) <!--2018/03-->
 
 ## 추천
 
